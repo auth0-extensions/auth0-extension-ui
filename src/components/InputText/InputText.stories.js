@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
-import InputText from './InputText';
+import InputText from './';
 
 function renderInputText(field) {
   return (

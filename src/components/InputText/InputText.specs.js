@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
-import InputText from './InputText';
+import InputText from './';
 
 const { describe, it } = global;
 

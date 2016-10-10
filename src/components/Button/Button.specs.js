@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import Button from './Button';
+import Button from './';
 
 const { describe, it } = global;
 
