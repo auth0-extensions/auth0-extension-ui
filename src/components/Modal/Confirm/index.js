@@ -5,7 +5,7 @@ class Confirm extends Component {
   renderCancel() {
     if (this.props.onCancel) {
       return (
-        <Button bsSize="large" bsStyle="transparent" disabled={this.props.loading} onClick={this.props.onCancel}>
+        <Button bsStyle="transparent" bsSize="large" disabled={this.props.loading} onClick={this.props.onCancel}>
           Cancel
         </Button>
       );

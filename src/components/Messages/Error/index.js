@@ -14,7 +14,7 @@ class Error extends Component {
     }
 
     return (
-      <Alert bsStyle="danger" onDismiss={this.onDismiss.bind(this)} dismissAfter={this.props.dismissAfter || 10000}>
+      <Alert bsStyle="danger" onDismiss={this.onDismiss.bind(this)}>
         <h4>Oh snap! You got an error!</h4>
         <p>{this.props.message}</p>
       </Alert>
@@ -24,7 +24,6 @@ class Error extends Component {
 
 Error.propTypes = {
   message: PropTypes.string,
-  dismissAfter: PropTypes.number,
   onDismiss: PropTypes.func,
   children: PropTypes.node
 };

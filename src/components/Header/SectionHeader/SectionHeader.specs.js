@@ -46,7 +46,7 @@ describe('SectionHeader', () => {
   });
 
 
-  describe('test values', () => {
+  describe('test is-subsection', () => {
     it('should not have is-subsection class', () => {
       field.isSubsection = false;
       wrapper = shallow(
