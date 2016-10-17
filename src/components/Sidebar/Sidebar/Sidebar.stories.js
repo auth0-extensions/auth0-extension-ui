@@ -3,9 +3,7 @@ import { storiesOf } from '@kadira/storybook';
 
 import Sidebar from './';
 import SidebarItem from '../SidebarItem';
-
-
-// TODO:: needs react-router...
+import FakeContext from '../../utils/FakeContext';
 
 storiesOf('Sidebar', module)
   .add('default view', () => (
@@ -13,12 +11,22 @@ storiesOf('Sidebar', module)
       <p>Users</p>
       <p>Groups</p>
     </Sidebar>
-  // ))
-  // .add('with Sidebar components', () => (
-  //       <Sidebar>
-  //         <SidebarItem title="Users" />
-  //         <SidebarItem title="Groups" />
-  //         <SidebarItem title="Roles" />
-  //         <SidebarItem title="Permissions" />
-  //       </Sidebar>
-  ));
+  ))
+  .add('with Sidebar components', () => {
+    const context = {
+      router: {
+        isActive: () => (true),
+        createHref: () => (true)
+      }
+    };
+    return (
+      <Sidebar>
+        <FakeContext context={context}>
+          <SidebarItem title="Users" />
+        </FakeContext>
+        <FakeContext context={context}>
+          <SidebarItem title="Groups" />
+        </FakeContext>
+      </Sidebar>
+    );
+  });

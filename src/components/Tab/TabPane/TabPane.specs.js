@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow, render } from 'enzyme';
 import { expect } from 'chai';
 
 import TabPane from './';
@@ -7,8 +7,23 @@ import TabPane from './';
 const { describe, it } = global;
 
 describe('TabPane', () => {
-  it('should have TabPane', () => {
-    const wrapper = mount(<TabPane title="Users" />);
-    // expect(wrapper.find('.script-button')).to.exist;
+  let wrapper;
+  const title = 'Users';
+  beforeEach((done) => {
+    const context = { router: { isActive: () => true } };
+    wrapper = shallow(<TabPane title={title} route="users" />, {
+      context,
+      childContextTypes: { router: React.PropTypes.object }
+    });
+    done();
+  });
+
+  it('should create TabPane', () => {
+    expect(wrapper.find('.active')).to.exist;
+    expect(wrapper.find('.script-button')).to.exist;
+  });
+
+  it('should create TabPane with provided title', () => {
+    expect(wrapper.find('Link > span').text()).to.be.equal(title);
   });
 });

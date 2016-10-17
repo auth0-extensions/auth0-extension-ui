@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import { Field } from 'redux-form';
 
-import { addFormDecorator } from '../utils';
+import { addFormDecorator } from '../../utils/formUtils';
 import ScopeGroup from './';
 
 const { describe, it } = global;

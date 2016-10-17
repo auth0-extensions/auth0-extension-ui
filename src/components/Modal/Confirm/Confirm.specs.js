@@ -8,7 +8,7 @@ import Confirm from './';
 const { describe, it } = global;
 
 describe('Confirm', () => {
-  let field = {
+  const field = {
     title: 'The title',
     show: true,
     loading: false,
@@ -41,12 +41,8 @@ describe('Confirm', () => {
       expect(wrapper.find('.Confirm--myclass')).to.have.length(1);
     });
 
-    it('should show modal title', () => {
-      expect(wrapper.find('.modal-title').text()).to.equal(field.title);
-    });
-
     it('should have a close button', () => {
-      expect(wrapper.find('button.close').length).to.be.above(0);
+      expect(wrapper.find('Button').length).to.be.above(0);
     });
   });
 
@@ -71,12 +67,12 @@ describe('Confirm', () => {
     });
 
     it('should call onCancel if modal is closed', () => {
-      wrapper.find('button.close').first().simulate('click');
+      wrapper.find('Button .button-cancel').first().simulate('click');
       expect(field.onCancel.calledOnce).to.equal(true);
     });
 
     it('should call onConfirm if modal is submitted', () => {
-      wrapper.find('.btn-primary').simulate('click');
+      wrapper.find('Button .button-confirm').simulate('click');
       expect(field.onConfirm.calledOnce).to.equal(true);
     });
   });

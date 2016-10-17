@@ -2,8 +2,19 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
 import TabPane from './';
+import FakeContext from '../../utils/FakeContext';
 
 storiesOf('TabPane', module)
-  .add('default view', () => (
-    <TabPane title="Users" />
-  ));
+  .add('default view', () => {
+    const context = {
+      router: {
+        isActive: () => (true),
+        createHref: () => (true)
+      }
+    };
+    return (
+      <FakeContext context={context}>
+        <TabPane title="Users" route="users" />
+      </FakeContext>
+    );
+  });

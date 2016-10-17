@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import { Field } from 'redux-form';
 
-import { addFormDecorator } from '../utils';
+import { addFormDecorator } from '../../utils/formUtils';
 import InputText from './';
 
 const { describe, it } = global;

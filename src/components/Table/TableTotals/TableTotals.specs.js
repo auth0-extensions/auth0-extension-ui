@@ -8,7 +8,6 @@ import TableTotals from './';
 const { describe, it } = global;
 
 describe('TableTotals', () => {
-
   it('should render information about table totals', () => {
     const field = {
       currentCount: 5,
@@ -21,8 +20,12 @@ describe('TableTotals', () => {
       .to.be.equal(`Showing ${field.currentCount} of ${field.totalCount}`);
   });
 
-  it('should show simple div if no currentCount or totalCount is provided', () => {
-    const wrapper = mount(<TableTotals />);
+  it('should show simple div if currentCount or totalCount are 0', () => {
+    const field = {
+      currentCount: 0,
+      totalCount: 10
+    };
+    const wrapper = mount(<TableTotals currentCount={field.currentCount} totalCount={field.totalCount} />);
     expect(wrapper.find('div')).to.have.length(1);
     expect(wrapper.find('div').text()).to.equal('');
   });

@@ -3,8 +3,8 @@ import { storiesOf } from '@kadira/storybook';
 import { Field } from 'redux-form';
 
 import InputCombo from './';
-import FakeForm from '../FakeForm';
-import { Provider, store } from '../utils';
+import FakeForm from '../../utils/FakeForm';
+import { Provider, store } from '../../utils/formUtils';
 
 function renderField(field) {
   return (
