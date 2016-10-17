@@ -17,6 +17,7 @@ import Confirm from './Modal/Confirm';
 
 // Page components.
 import BlankState from './Page/BlankState';
+import CodeEditor from './Page/CodeEditor';
 import Json from './Page/Json';
 import LoadingPanel from './Page/LoadingPanel';
 import SearchBar from './Page/SearchBar';
@@ -54,6 +55,7 @@ export {
   Error,
   Confirm,
   BlankState,
+  CodeEditor,
   Json,
   LoadingPanel,
   SearchBar,
