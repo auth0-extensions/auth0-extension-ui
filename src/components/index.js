@@ -1,37 +1,76 @@
-export * as InputText from './Form/InputText';
-export * as InputCombo from './Form/InputCombo';
-export * as Scope from './Form/Scope';
-export * as ScopeGroup from './Form/ScopeGroup';
-export * as Multiselect from './Form/Multiselect';
+// Form components.
+import InputText from './Form/InputText';
+import InputCombo from './Form/InputCombo';
+import Scope from './Form/Scope';
+import ScopeGroup from './Form/ScopeGroup';
+import Multiselect from './Form/Multiselect';
 
-export * as EntityHeader from './Header/EntityHeader';
-export * as SectionHeader from './Header/SectionHeader';
+// Header components.
+import EntityHeader from './Header/EntityHeader';
+import SectionHeader from './Header/SectionHeader';
 
-export * as Error from './Messages/Error';
+// Messages components.
+import Error from './Messages/Error';
 
-export * as Confirm from './Modal/Confirm';
+// Modal components.
+import Confirm from './Modal/Confirm';
 
-export * as BlankState from './Page/BlankState';
-export * as Json from './Page/Json';
-export * as LoadingPanel from './Page/LoadingPanel';
-export * as SearchBar from './Page/SearchBar';
+// Page components.
+import BlankState from './Page/BlankState';
+import Json from './Page/Json';
+import LoadingPanel from './Page/LoadingPanel';
+import SearchBar from './Page/SearchBar';
 
-export * as Sidebar from './Sidebar/Sidebar';
-export * as SidebarItem from './Sidebar/SidebarItem';
+// Sidebar components.
+import Sidebar from './Sidebar/Sidebar';
+import SidebarItem from './Sidebar/SidebarItem';
 
-export * as Tab from './Tab/Tab';
-export * as TabPane from './Tab/TabPane';
+// Tab components.
+import Tab from './Tab/Tab';
+import TabPane from './Tab/TabPane';
 
-// TODO table components
-// export * as Table from './Table/Table';
-// export * as TableBody from './Table/TableBody';
-// export * as TableCell from './Table/TableCell';
-// export * as TableIconCell from './Table/TableIconCell';
-// export * as TableTextCell from './Table/TableTextCell';
-// export * as TableHeader from './Table/TableHeader';
-// export * as TableColumn from './Table/TableColumn';
-// export * as TableRow from './Table/TableRow';
-// export * as TableRouteCell from './Table/TableRouteCell';
-// export * as TableActionCell from './Table/TableActionCell';
-// export * as TableTotals from './Table/TableTotals';
-// export * as TableAction from './Table/TableAction';
+// Table components.
+import Table from './Table/Table';
+import TableBody from './Table/TableBody';
+import TableCell from './Table/TableCell';
+import TableIconCell from './Table/TableIconCell';
+import TableTextCell from './Table/TableTextCell';
+import TableHeader from './Table/TableHeader';
+import TableColumn from './Table/TableColumn';
+import TableRow from './Table/TableRow';
+import TableRouteCell from './Table/TableRouteCell';
+import TableActionCell from './Table/TableActionCell';
+import TableTotals from './Table/TableTotals';
+import TableAction from './Table/TableAction';
+
+export {
+  InputText,
+  InputCombo,
+  Scope,
+  ScopeGroup,
+  Multiselect,
+  EntityHeader,
+  SectionHeader,
+  Error,
+  Confirm,
+  BlankState,
+  Json,
+  LoadingPanel,
+  SearchBar,
+  Sidebar,
+  SidebarItem,
+  Tab,
+  TabPane,
+  Table,
+  TableBody,
+  TableCell,
+  TableIconCell,
+  TableTextCell,
+  TableHeader,
+  TableColumn,
+  TableRow,
+  TableRouteCell,
+  TableActionCell,
+  TableTotals,
+  TableAction
+};

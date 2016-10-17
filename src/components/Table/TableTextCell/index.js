@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import TableCell from './TableCell';
+import TableCell from '../TableCell';
 
 const TableTextCell = ({ children, onClick }) => {
   if (onClick) {

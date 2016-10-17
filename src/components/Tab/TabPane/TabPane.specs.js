@@ -7,7 +7,7 @@ import TabPane from './';
 const { describe, it } = global;
 
 describe('TabPane', () => {
-  it.only('should have TabPane', () => {
+  it('should have TabPane', () => {
     const wrapper = mount(<TabPane title="Users" />);
     // expect(wrapper.find('.script-button')).to.exist;
   });

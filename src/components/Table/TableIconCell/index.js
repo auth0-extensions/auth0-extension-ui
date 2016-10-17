@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import TableCell from './TableCell';
+import TableCell from '../TableCell';
 
 const TableIconCell = ({ color, icon }) => (
 
