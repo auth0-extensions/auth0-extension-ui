@@ -36,6 +36,12 @@ class LoadingPanel extends Component {
     };
   }
 
+  componentWillMount() {
+    if (this.props.show) {
+      this.showTimer = setTimeout(this.setLoading, this.props.delay || 100);
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (!nextProps.show) {
       clearTimeout(this.showTimer);
@@ -59,7 +65,7 @@ class LoadingPanel extends Component {
 
   render() {
     if (!this.state.show) {
-      return <div >{this.props.children}</div>;
+      return <div>{this.props.children}</div>;
     }
 
     const animation = (<div className="spinner spinner-sm" style={{ marginLeft: 'auto', marginRight: 'auto' }}>

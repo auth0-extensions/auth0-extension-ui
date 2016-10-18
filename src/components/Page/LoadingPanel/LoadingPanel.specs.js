@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { expect } from 'chai';
+import sinon from 'sinon';
 
 import LoadingPanel from './';
 
@@ -18,6 +19,8 @@ describe('LoadingPanel', () => {
 
   describe('test elements', () => {
     beforeEach((done) => {
+      sinon.spy(LoadingPanel.prototype, 'componentWillMount');
+
       wrapper = mount(
         <LoadingPanel
           backgroundStyle={field.backgroundStyle}
@@ -34,6 +37,10 @@ describe('LoadingPanel', () => {
 
     it('should render children', () => {
       expect(wrapper.find('div').text()).to.equal(field.children);
+    });
+
+    it('calls componentWillMount', () => {
+      expect(LoadingPanel.prototype.componentWillMount.calledOnce).to.equal(true);
     });
   });
 });
