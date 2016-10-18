@@ -16,7 +16,6 @@
     "test": "npm run lint && npm run testonly",
     "test-watch": "npm run testonly -- --watch --watch-extensions js",
     "storybook": "start-storybook -p 9010",
-    "deploy-storybook": "storybook-to-ghpages",
     "publish-storybook": "bash .scripts/publish_storybook.sh",
     "postpublish": "npm run publish-storybook"
   },
@@ -28,7 +27,6 @@
   "devDependencies": {
     "@kadira/storybook": "^2.2.1",
     "@kadira/storybook-addon-hello": "^1.0.1",
-    "@kadira/storybook-deployer": "^1.2.0",
     "auth0-styleguide": "auth0/styleguide#4.6.5",
     "babel-cli": "^6.5.0",
     "babel-core": "^6.5.0",
