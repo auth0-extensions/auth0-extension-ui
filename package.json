@@ -6,8 +6,11 @@
     "node": "6.0.0",
     "npm": "^3.0.0"
   },
-  "main": "src/components/index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "clean": "rimraf dist",
+    "extension:build": "NODE_ENV=production webpack --config ./.storybook/webpack.config.js --colors -p",
+    "build": "npm run clean && npm run extension:build",
     "release": "git tag $npm_package_version && git push && git push --tags && npm publish",
     "prepublish": ". ./.scripts/prepublish.sh",
     "lint": "eslint src",
