@@ -14,7 +14,7 @@ function renderField(field) {
       args={field.args}
       disabled={field.disabled}
     />
-  )
+  );
 }
 
 storiesOf('TableAction', module)

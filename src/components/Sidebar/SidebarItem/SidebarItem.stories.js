@@ -13,12 +13,12 @@ function getContext() {
   };
 }
 storiesOf('SidebarItem', module)
-  .add('default view', () =>  (
+  .add('default view', () => (
     <FakeContext context={getContext()}>
       <SidebarItem title="Permissions" route="permissions" />
     </FakeContext>
   ))
-  .add('with icon view', () =>  (
+  .add('with icon view', () => (
     <FakeContext context={getContext()}>
       <SidebarItem
         title="Permissions"
@@ -27,7 +27,7 @@ storiesOf('SidebarItem', module)
       />
     </FakeContext>
   ))
-  .add('with children', () =>  (
+  .add('with children', () => (
     <FakeContext context={getContext()}>
       <SidebarItem title="Permissions">
         This is the SidebarItem children.

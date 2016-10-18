@@ -8,6 +8,6 @@ storiesOf('TableTotals', module)
     const field = {
       currentCount: 5,
       totalCount: 10
-    }
-    return (<TableTotals currentCount={field.currentCount} totalCount={field.totalCount} />)
+    };
+    return (<TableTotals currentCount={field.currentCount} totalCount={field.totalCount} />);
   });

@@ -27,4 +27,4 @@ storiesOf('Table', module)
         </TableRow>
       </TableBody>
     </Table>
-  ))
+  ));
