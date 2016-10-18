@@ -1,6 +1,6 @@
 {
   "name": "auth0-extension-ui",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Auth0 Extension UI",
   "engines": {
     "node": "6.0.0",
