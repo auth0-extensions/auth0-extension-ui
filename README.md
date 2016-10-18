@@ -1,5 +1,7 @@
 # Auth0 Extension UI
 
+[![npm](https://img.shields.io/npm/dt/https://www.npmjs.com/package/auth0-extension-ui.svg)](https://www.npmjs.com/package/auth0-extension-ui)
+
 Add your components to `src/components` and stories that will appear in storybook (e.g `InputText.js` contains the component and `InputText.stories.js` has the stories).
 
 # Run storybook
