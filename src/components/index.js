@@ -18,6 +18,7 @@ import Confirm from './Modal/Confirm';
 // Page components.
 import BlankState from './Page/BlankState';
 import CodeEditor from './Page/CodeEditor';
+import DragAndDrop from './Page/DragAndDrop';
 import Json from './Page/Json';
 import LoadingPanel from './Page/LoadingPanel';
 import SearchBar from './Page/SearchBar';
@@ -56,6 +57,7 @@ export {
   Confirm,
   BlankState,
   CodeEditor,
+  DragAndDrop,
   Json,
   LoadingPanel,
   SearchBar,
