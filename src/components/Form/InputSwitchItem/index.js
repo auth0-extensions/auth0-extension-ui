@@ -8,7 +8,7 @@ const InputSwitchItem = field => (
     </div>
     <div className="switch">
       <div className="ui-switch">
-        <input {...field.input} name={field.name} component="input" type="checkbox" /><span className="status" />
+        <input {...field.input} id={field.name} type="checkbox" /><span className="status" />
       </div>
     </div>
   </div>

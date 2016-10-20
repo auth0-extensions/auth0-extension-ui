@@ -1,6 +1,7 @@
 // Form components.
 import InputText from './Form/InputText';
 import InputCombo from './Form/InputCombo';
+import InputSwitchItem from './Form/InputSwitchItem';
 import Scope from './Form/Scope';
 import ScopeGroup from './Form/ScopeGroup';
 import Multiselect from './Form/Multiselect';
@@ -48,6 +49,7 @@ import TableAction from './Table/TableAction';
 export {
   InputText,
   InputCombo,
+  InputSwitchItem,
   Scope,
   ScopeGroup,
   Multiselect,
