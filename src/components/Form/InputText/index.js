@@ -18,7 +18,7 @@ const InputText = field => {
           {...field.input}
           className="form-control"
           id={field.name}
-          type="text"
+          type={field.type || 'text'}
           placeholder={field.placeholder}
         />
       </label>

@@ -34,5 +34,22 @@ describe('InputText', () => {
     expect(wrapper.find('input').props().id).to.be.equal(field.name);
     expect(wrapper.find('input').props().placeholder).to.be.equal(field.placeholder);
     expect(wrapper.find('span').text()).to.be.equal(field.label);
+    expect(wrapper.find('input').props().type).to.be.equal('text'); // text is the default value
+  });
+  it('should have type number', () => {
+    const field = {
+      name: 'FieldName',
+      label: 'My Label',
+      type: 'number'
+    };
+    const wrapper = mount(addFormDecorator(
+      <Field
+        name={field.name}
+        component={InputText}
+        label={field.label}
+        type={field.type}
+      />
+    ));
+    expect(wrapper.find('input').props().type).to.be.equal(field.type);
   });
 });

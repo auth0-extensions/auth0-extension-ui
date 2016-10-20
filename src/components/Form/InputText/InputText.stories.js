@@ -14,18 +14,29 @@ function renderField(field) {
         label={field.label}
         placeholder={field.placeholder}
         validationErrors={field.validationErrors}
+        type={field.type}
       />
   );
 }
 
 storiesOf('InputText', module)
   .addDecorator(story => (<Provider store={store}><FakeForm>{story()}</FakeForm></Provider>))
-  .add('default view', () => {
+  .add('default view (text)', () => {
     const field = {
       name: 'FieldName',
       label: 'My Label',
       placeholder: 'My placeholder',
       validationErrors: { }
+    };
+    return renderField(field);
+  })
+  .add('default view (number)', () => {
+    const field = {
+      name: 'FieldName',
+      label: 'My Label',
+      placeholder: 'My number',
+      validationErrors: { },
+      type: 'number'
     };
     return renderField(field);
   })
