@@ -22,7 +22,7 @@ module.exports = function (config) {
     exclude: path.join(__dirname, '../../node_modules/')
   });
 
-  if (process.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production') {
     config.target = 'node';
     config.entry = path.join(__dirname, '../../src/components/index.js');
     config.output = {
