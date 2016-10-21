@@ -17,13 +17,12 @@ module.exports = function (config) {
     loader: 'url?limit=100000'
   });
 
-console.log(process.env.NODE_ENV);
   if (process.env.NODE_ENV === 'production') {
-	  config.module.loaders.push({
-	    test: /\.jsx?$/,
-	    loader: 'babel',
-	    exclude: path.join(__dirname, '../../node_modules/')
-	  });
+    config.module.loaders.push({
+      test: /\.jsx?$/,
+      loader: 'babel',
+      exclude: path.join(__dirname, '../../node_modules/')
+    });
 
     config.target = 'node';
     config.entry = path.join(__dirname, '../../src/components/index.js');
