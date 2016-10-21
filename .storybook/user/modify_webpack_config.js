@@ -16,13 +16,15 @@ module.exports = function (config) {
     test: /\.(woff|woff2|eot)/,
     loader: 'url?limit=100000'
   });
-  config.module.loaders.push({
-    test: /\.jsx?$/,
-    loader: 'babel',
-    exclude: path.join(__dirname, '../../node_modules/')
-  });
 
+console.log(process.env.NODE_ENV);
   if (process.env.NODE_ENV === 'production') {
+	  config.module.loaders.push({
+	    test: /\.jsx?$/,
+	    loader: 'babel',
+	    exclude: path.join(__dirname, '../../node_modules/')
+	  });
+
     config.target = 'node';
     config.entry = path.join(__dirname, '../../src/components/index.js');
     config.output = {
