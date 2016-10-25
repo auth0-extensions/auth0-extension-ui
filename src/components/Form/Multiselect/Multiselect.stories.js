@@ -11,7 +11,7 @@ function renderField(field) {
     <Field
       name={field.name}
       component={Multiselect}
-      options={field.options}
+      loadOptions={field.loadOptions}
     />
   );
 }
@@ -21,12 +21,17 @@ storiesOf('Multiselect', module)
   .add('default view', () => {
     const field = {
       name: 'FieldName',
-      options: [
-        { value: 'ariel', label: 'Ariel Gerstein', email: 'ariel@auth0.com' },
-        { value: 'victor', label: 'Victor Fernandez', email: 'victor@auth0.com' },
-        { value: 'ricky', label: 'Ricky Rauch', email: 'ricky@auth0.com' },
-        { value: 'cherna', label: 'Tomas Cherna', email: 'cherna@auth0.com' }
-      ]
+      loadOptions: (input, callback) => {
+        callback(null, {
+          options: [
+            { value: 'ariel', label: 'Ariel Gerstein', email: 'ariel@auth0.com' },
+            { value: 'victor', label: 'Victor Fernandez', email: 'victor@auth0.com' },
+            { value: 'ricky', label: 'Ricky Rauch', email: 'ricky@auth0.com' },
+            { value: 'cherna', label: 'Tomas Cherna', email: 'cherna@auth0.com' }
+          ],
+          complete: true
+        });
+      }
     };
     return renderField(field);
   });
