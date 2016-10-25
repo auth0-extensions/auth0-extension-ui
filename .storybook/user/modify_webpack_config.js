@@ -18,6 +18,13 @@ module.exports = function (config) {
   });
 
   if (process.env.NODE_ENV === 'production') {
+    config.externals = {
+     'redux': 'commonjs redux',
+     'react': 'commonjs react',
+     'react-dom': 'commonjs react-dom',
+     'react-router': 'commonjs react-router'
+    };
+
     config.module.loaders.push({
       test: /\.jsx?$/,
       loader: 'babel',
