@@ -25,9 +25,7 @@ export default class Scope extends Component {
     }
   }
 
-  isChecked = (field, value) => field.value &&
-    ((typeof field.value === 'string' && field.value.indexOf(value) >= 0) ||
-    (typeof field.value === 'number' && field.value === value));
+  isChecked = (field, value) => field.value && field.value.indexOf(value) >= 0;
 
   render() {
     const { value, text, field } = this.props;
