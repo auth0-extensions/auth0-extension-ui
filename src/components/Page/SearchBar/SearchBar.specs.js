@@ -35,6 +35,7 @@ describe('SearchBar', () => {
           iconCode={field.iconCode}
           handleKeyPress={field.handleKeyPress}
           handleReset={field.handleReset}
+          handleOptionChange={field.handleOptionChange}
         />
       );
       done();
@@ -57,6 +58,7 @@ describe('SearchBar', () => {
     beforeEach((done) => {
       field.handleKeyPress = sinon.spy();
       field.handleReset = sinon.spy();
+      field.handleOptionChange = sinon.spy();
 
       wrapper = mount(
         <SearchBar
@@ -66,6 +68,7 @@ describe('SearchBar', () => {
           iconCode={field.iconCode}
           handleKeyPress={field.handleKeyPress}
           handleReset={field.handleReset}
+          handleOptionChange={field.handleOptionChange}
         />
       );
       done();
@@ -79,6 +82,11 @@ describe('SearchBar', () => {
     it('should call handleKeyPress if character is inserted', () => {
       wrapper.find('input').simulate('keyPress', { keyCode: 40 });
       expect(field.handleKeyPress.calledOnce).to.equal(true);
+    });
+
+    it('should call handleOptionChange when option changes', () => {
+      wrapper.find('select').simulate('change', { target: { value: 'email' } });
+      expect(field.handleOptionChange.calledOnce).to.equal(true);
     });
   });
 });

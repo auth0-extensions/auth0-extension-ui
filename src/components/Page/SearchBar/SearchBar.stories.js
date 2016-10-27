@@ -12,6 +12,7 @@ function renderField(field) {
       iconCode={field.iconCode}
       handleKeyPress={action('handleKeyPress')}
       handleReset={action('handleReset')}
+      handleOptionChange={action('handleOptionChange')}
     />
   );
 }

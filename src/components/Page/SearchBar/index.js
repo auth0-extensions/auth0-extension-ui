@@ -11,6 +11,10 @@ class SearchBar extends Component {
   handleChange(event) {
     this.setState({
       selectedOption: this.props.searchOptions.find(opt => opt.value === event.target.value)
+    }, () => {
+      if (this.props.handleOptionChange) {
+        this.props.handleOptionChange(this.state.selectedOption);
+      }
     });
   }
   render() {
@@ -65,6 +69,7 @@ SearchBar.propTypes = {
   ),
   handleKeyPress: PropTypes.func,
   handleReset: PropTypes.func,
+  handleOptionChange: PropTypes.func,
   showInstructions: PropTypes.bool
 };
 
