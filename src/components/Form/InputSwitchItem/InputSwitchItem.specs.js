@@ -10,11 +10,11 @@ const { describe, it } = global;
 
 describe('InputSwitchItem', () => {
   it('should render one input element', () => {
-    const wrapper = shallow(<InputSwitchItem />);
+    const wrapper = mount(addFormDecorator(<Field component={InputSwitchItem} />));
     expect(wrapper.find('input')).to.have.length(1);
   });
   it('should have input with type checkbox', () => {
-    const wrapper = shallow(<InputSwitchItem />);
+    const wrapper = mount(addFormDecorator(<Field component={InputSwitchItem} />));
     expect(wrapper.find('input').props().type).to.equal('checkbox');
   });
   it('should show the given value', () => {

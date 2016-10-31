@@ -22,6 +22,7 @@ import CodeEditor from './Page/CodeEditor';
 import DragAndDrop from './Page/DragAndDrop';
 import Json from './Page/Json';
 import LoadingPanel from './Page/LoadingPanel';
+import Pagination from './Page/Pagination';
 import SearchBar from './Page/SearchBar';
 
 // Sidebar components.
@@ -62,6 +63,7 @@ export {
   DragAndDrop,
   Json,
   LoadingPanel,
+  Pagination,
   SearchBar,
   Sidebar,
   SidebarItem,
