@@ -6,9 +6,8 @@ class LoadingPanel extends Component {
   constructor(props) {
     super(props);
 
-    this.setLoading = this.setLoading.bind(this);
     this.state = {
-      show: false
+      show: props.show || false
     };
 
     // Default styles.
@@ -37,20 +36,19 @@ class LoadingPanel extends Component {
   }
 
   componentWillMount() {
-    if (this.props.show) {
-      this.showTimer = setTimeout(this.setLoading, this.props.delay || 100);
+    if (this.showTimer) {
+      clearTimeout(this.showTimer);
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.show) {
       clearTimeout(this.showTimer);
-      return this.setState({
-        show: false
-      });
+      this.showTimer = null;
+      this.stopLoading();
+    } else if (!this.showTimer) {
+      this.showTimer = setTimeout(this.startLoading, this.props.delay || 200);
     }
-
-    this.showTimer = setTimeout(this.setLoading, this.props.delay || 100);
   }
 
   componentWillUnmount() {
@@ -59,8 +57,16 @@ class LoadingPanel extends Component {
     }
   }
 
-  setLoading() {
-    this.setState({ show: true });
+  stopLoading = () => {
+    this.setState({
+      show: false
+    });
+  }
+
+  startLoading = () => {
+    this.setState({
+      show: true
+    });
   }
 
   render() {
