@@ -20,6 +20,8 @@ class Pagination extends Component {
   }
 
   render() {
+    if (this.props.totalItems === 0) return null;
+
     const pages = Math.ceil(this.props.totalItems / this.props.perPage);
 
     return (
