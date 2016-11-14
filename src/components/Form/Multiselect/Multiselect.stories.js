@@ -24,10 +24,10 @@ storiesOf('Multiselect', module)
       loadOptions: (input, callback) => {
         callback(null, {
           options: [
-            { value: 'ariel', label: 'Ariel Gerstein', email: 'ariel@auth0.com' },
-            { value: 'victor', label: 'Victor Fernandez', email: 'victor@auth0.com' },
-            { value: 'ricky', label: 'Ricky Rauch', email: 'ricky@auth0.com' },
-            { value: 'cherna', label: 'Tomas Cherna', email: 'cherna@auth0.com' }
+            { label: 'Ariel Gerstein', value: 'ariel@auth0.com' },
+            { label: 'Victor Fernandez', value: 'victor@auth0.com' },
+            { label: 'Ricky Rauch', value: 'ricky@auth0.com' },
+            { label: 'Tomas Cherna', value: 'cherna@auth0.com' }
           ],
           complete: true
         });

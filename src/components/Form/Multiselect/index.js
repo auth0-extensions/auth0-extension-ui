@@ -9,7 +9,7 @@ class Multiselect extends Component {
     return (
       <span>
         <strong>{value.label}</strong>
-        <span> ({value.email})</span>
+        <span> ({value.value})</span>
       </span>
     );
   }

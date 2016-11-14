@@ -33,7 +33,7 @@ describe('LoadingPanel', () => {
     });
 
     it('should render children', () => {
-      expect(wrapper.find('div').text()).to.equal(field.children);
+      expect(wrapper.find('Loader').text()).to.equal(field.children);
     });
   });
 });
