@@ -1,4 +1,5 @@
 import React from 'react';
+import './InputSwitchItem.styl';
 
 const InputSwitchItem = field => (
   <div tabIndex="-1" data-switch-position="left" className="switchboard-item disabled">
