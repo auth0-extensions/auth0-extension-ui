@@ -12,6 +12,8 @@
   },
   "parser": "babel-eslint",
   "rules": {
+    "react/jsx-filename-extension": 0,
+    "import/no-extraneous-dependencies": 0,
     "max-len": 0,
     "react/display-name": 0,
     "array-bracket-spacing": [2, "always"],
