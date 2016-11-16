@@ -65,6 +65,7 @@ describe('SearchBar', () => {
       field.handleKeyPress = sinon.spy();
       field.handleReset = sinon.spy();
       field.handleOptionChange = sinon.spy();
+      field.handleInputChange = sinon.spy();
 
       wrapper = mount(
         <SearchBar
@@ -75,6 +76,7 @@ describe('SearchBar', () => {
           handleKeyPress={field.handleKeyPress}
           handleReset={field.handleReset}
           handleOptionChange={field.handleOptionChange}
+          handleInputChange={field.handleInputChange}
         />
       );
       done();
@@ -93,6 +95,11 @@ describe('SearchBar', () => {
     it('should call handleOptionChange when option changes', () => {
       wrapper.find('select').simulate('change', { target: { value: 'email' } });
       expect(field.handleOptionChange.calledOnce).to.equal(true);
+    });
+
+    it('should call handleOptionChange when option changes', () => {
+      wrapper.find('input').simulate('change', { target: { value: 'test' } });
+      expect(field.handleInputChange.calledOnce).to.equal(true);
     });
   });
 });

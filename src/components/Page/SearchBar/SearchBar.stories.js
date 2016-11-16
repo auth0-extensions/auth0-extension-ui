@@ -13,6 +13,7 @@ function renderField(field) {
       handleKeyPress={action('handleKeyPress')}
       handleReset={action('handleReset')}
       handleOptionChange={action('handleOptionChange')}
+      handleInputChange={action('handleInputChange')}
       searchValue={field.searchValue}
     />
   );

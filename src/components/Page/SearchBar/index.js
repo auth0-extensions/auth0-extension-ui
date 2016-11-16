@@ -21,6 +21,10 @@ class SearchBar extends Component {
   handleSearchValueChange = (ev) => {
     this.setState({
       searchValue: ev.target.value
+    }, () => {
+      if (this.props.handleInputChange) {
+        this.props.handleInputChange(this.state.searchValue);
+      }
     });
   }
   render() {
@@ -78,6 +82,7 @@ SearchBar.propTypes = {
   handleKeyPress: PropTypes.func,
   handleReset: PropTypes.func,
   handleOptionChange: PropTypes.func,
+  handleInputChange: PropTypes.func,
   showInstructions: PropTypes.bool
 };
 
