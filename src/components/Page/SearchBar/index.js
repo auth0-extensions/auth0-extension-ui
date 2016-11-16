@@ -4,7 +4,8 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedOption: this.props.searchOptions.find(opt => opt.selected) || this.props.searchOptions[0]
+      selectedOption: this.props.searchOptions.find(opt => opt.selected) || this.props.searchOptions[0],
+      searchValue: this.props.searchValue
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -17,6 +18,11 @@ class SearchBar extends Component {
       }
     });
   }
+  handleSearchValueChange = (ev) => {
+    this.setState({
+      searchValue: ev.target.value
+    });
+  }
   render() {
     const { placeholder, iconCode, searchOptions, handleKeyPress, handleReset, showInstructions } = this.props;
     return (
@@ -27,6 +33,7 @@ class SearchBar extends Component {
             <input
               className="user-input" type="text" placeholder={placeholder || 'Search'}
               spellCheck="false" style={{ marginLeft: '10px' }} onKeyPress={handleKeyPress}
+              value={this.state.searchValue} onChange={this.handleSearchValueChange}
             />
           </span>
 
@@ -67,6 +74,7 @@ SearchBar.propTypes = {
       selected: PropTypes.bool
     })
   ),
+  searchValue: PropTypes.string,
   handleKeyPress: PropTypes.func,
   handleReset: PropTypes.func,
   handleOptionChange: PropTypes.func,

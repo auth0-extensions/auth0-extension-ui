@@ -21,7 +21,8 @@ describe('SearchBar', () => {
       }
     ],
     showInstructions: true,
-    iconCode: 488
+    iconCode: 488,
+    searchValue: 'test'
   };
   let wrapper;
 
@@ -36,6 +37,7 @@ describe('SearchBar', () => {
           handleKeyPress={field.handleKeyPress}
           handleReset={field.handleReset}
           handleOptionChange={field.handleOptionChange}
+          searchValue={field.searchValue}
         />
       );
       done();
@@ -51,6 +53,10 @@ describe('SearchBar', () => {
 
     it('should have the provided icon', () => {
       expect(wrapper.find('.icon-budicon-488').length).to.equal(1);
+    });
+
+    it('should have a default value', () => {
+      expect(wrapper.find('.user-input').props().value).to.equal('test');
     });
   });
 

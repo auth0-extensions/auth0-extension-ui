@@ -13,6 +13,7 @@ function renderField(field) {
       handleKeyPress={action('handleKeyPress')}
       handleReset={action('handleReset')}
       handleOptionChange={action('handleOptionChange')}
+      searchValue={field.searchValue}
     />
   );
 }
@@ -65,6 +66,24 @@ storiesOf('SearchBar', module)
         }
       ],
       iconCode: 488
+    };
+    return renderField(field);
+  })
+  .add('with init search value', () => {
+    const field = {
+      placeholder: 'The placeholder',
+      searchOptions: [
+        {
+          value: 'user',
+          title: 'User'
+        },
+        {
+          value: 'email',
+          title: 'Email'
+        }
+      ],
+      iconCode: 488,
+      searchValue: 'test'
     };
     return renderField(field);
   });
