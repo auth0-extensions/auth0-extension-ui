@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
-import { Alert } from 'react-bootstrap';
+import Alert from '../Alert';
 
 class Success extends Component {
-  onDismiss = () => {
-    if (this.props.onDismiss) {
-      this.props.onDismiss();
-    }
+  static defaultProps = {
+    show: true
   }
 
   render() {
-    if (!this.props.message) {
-      return this.props.children || <div />;
-    }
-
     return (
-      <Alert bsStyle="success" onDismiss={this.onDismiss}>
-        <strong>Well done!</strong> {this.props.message}
+      <Alert
+        show={this.props.show}
+        type="success"
+        title="Well done!"
+        message={this.props.message}
+        onDismiss={this.props.onDismiss}
+      >
+        {this.props.children}
       </Alert>
     );
   }
 }
 
 Success.propTypes = {
+  show: React.PropTypes.bool,
   message: React.PropTypes.string,
   onDismiss: React.PropTypes.func,
   children: React.PropTypes.node

@@ -11,6 +11,7 @@ import EntityHeader from './Header/EntityHeader';
 import SectionHeader from './Header/SectionHeader';
 
 // Messages components.
+import Alert from './Messages/Alert';
 import Error from './Messages/Error';
 import Info from './Messages/Info';
 import Success from './Messages/Success';
@@ -58,6 +59,7 @@ export {
   Multiselect,
   EntityHeader,
   SectionHeader,
+  Alert,
   Error,
   Info,
   Success,

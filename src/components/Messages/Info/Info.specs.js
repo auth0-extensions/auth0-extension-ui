@@ -8,7 +8,7 @@ import Info from './';
 const { describe, it } = global;
 
 describe('Info', () => {
-  let field = {
+  const field = {
     message: 'This is the info message'
   };
   let wrapper;
@@ -19,16 +19,8 @@ describe('Info', () => {
       done();
     });
 
-    it('should render one alert', () => {
-      expect(wrapper.find('.alert')).to.have.length(1);
-    });
-
     it('should show info message', () => {
       expect(wrapper.find('.alert').text()).to.contain(field.message);
-    });
-
-    it('should have a close button', () => {
-      expect(wrapper.find('button.close').length).to.be.above(0);
     });
   });
 
@@ -39,6 +31,18 @@ describe('Info', () => {
 
       wrapper.find('button.close').first().simulate('click');
       expect(onDismiss.calledOnce).to.equal(true);
+    });
+  });
+
+  describe('test show attr', () => {
+    it('should not show anything', () => {
+      wrapper = mount(<Info message={field.message} show={false} />);
+      expect(wrapper.find('.alert')).to.have.length(0);
+    });
+
+    it('should show alert', () => {
+      wrapper = mount(<Info message={field.message} show={true} />);
+      expect(wrapper.find('.alert')).to.have.length(1);
     });
   });
 });
