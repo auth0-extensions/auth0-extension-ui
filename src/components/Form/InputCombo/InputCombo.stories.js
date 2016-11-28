@@ -29,7 +29,7 @@ storiesOf('InputCombo', module)
     };
     return renderField(field);
   })
-  .add('with error', () => {
+  .add('with error from validationErrors', () => {
     const field = {
       name: 'FieldName',
       label: 'My Label',

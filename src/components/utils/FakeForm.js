@@ -11,6 +11,7 @@ FakeForm.propTypes = {
   children: PropTypes.node
 };
 
+// TODO: understand how to test validate errors.
 export default reduxForm({
   form: 'fake'
 })(FakeForm);
