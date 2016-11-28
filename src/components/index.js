@@ -12,6 +12,8 @@ import SectionHeader from './Header/SectionHeader';
 
 // Messages components.
 import Error from './Messages/Error';
+import Info from './Messages/Info';
+import Success from './Messages/Success';
 
 // Modal components.
 import Confirm from './Modal/Confirm';
@@ -57,6 +59,8 @@ export {
   EntityHeader,
   SectionHeader,
   Error,
+  Info,
+  Success,
   Confirm,
   BlankState,
   CodeEditor,

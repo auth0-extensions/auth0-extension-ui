@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Alert } from 'react-bootstrap';
 
-class Error extends Component {
+class Info extends Component {
   onDismiss = () => {
     if (this.props.onDismiss) {
       this.props.onDismiss();
@@ -14,17 +14,17 @@ class Error extends Component {
     }
 
     return (
-      <Alert bsStyle="danger" onDismiss={this.onDismiss}>
-        <strong>Oh snap!</strong> {this.props.message}
+      <Alert bsStyle="info" onDismiss={this.onDismiss}>
+        <strong>Heads up!</strong> {this.props.message}
       </Alert>
     );
   }
 }
 
-Error.propTypes = {
+Info.propTypes = {
   message: React.PropTypes.string,
   onDismiss: React.PropTypes.func,
   children: React.PropTypes.node
 };
 
-export default Error;
+export default Info;

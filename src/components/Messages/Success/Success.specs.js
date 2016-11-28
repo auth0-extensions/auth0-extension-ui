@@ -3,19 +3,19 @@ import { mount } from 'enzyme';
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import Error from './';
+import Success from './';
 
 const { describe, it } = global;
 
-describe('Error', () => {
+describe('Success', () => {
   let field = {
-    message: 'This is the error message'
+    message: 'This is the success message'
   };
   let wrapper;
 
   describe('test elements', () => {
     beforeEach((done) => {
-      wrapper = mount(<Error message={field.message} onDismiss={field.onDismiss} />);
+      wrapper = mount(<Success message={field.message} onDismiss={field.onDismiss} />);
       done();
     });
 
@@ -23,7 +23,7 @@ describe('Error', () => {
       expect(wrapper.find('.alert')).to.have.length(1);
     });
 
-    it('should show error message', () => {
+    it('should show success message', () => {
       expect(wrapper.find('.alert').text()).to.contain(field.message);
     });
 
@@ -35,7 +35,7 @@ describe('Error', () => {
   describe('test function', () => {
     it('should call onDismiss if alert is closed', () => {
       const onDismiss = sinon.spy();
-      wrapper = mount(<Error message={field.message} onDismiss={onDismiss} />);
+      wrapper = mount(<Success message={field.message} onDismiss={onDismiss} />);
 
       wrapper.find('button.close').first().simulate('click');
       expect(onDismiss.calledOnce).to.equal(true);
