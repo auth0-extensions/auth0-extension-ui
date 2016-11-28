@@ -1,18 +1,18 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
-import Error from './';
+import Info from './';
 
 function renderField(field) {
   return (
-    <Error message={field.message} onDismiss={field.onDismiss} />
+    <Info message={field.message} onDismiss={field.onDismiss} />
   );
 }
 
-storiesOf('Error', module)
+storiesOf('Info', module)
   .add('default view', () => {
     const field = {
-      message: 'This is the error message'
+      message: 'This is the info message'
     };
     return renderField(field);
   });
