@@ -43,7 +43,7 @@ describe('InputCombo', () => {
       />
     ));
     expect(wrapper.find('select').props().id).to.be.equal(field.name);
-    expect(wrapper.find('span').text()).to.be.equal(field.label);
+    expect(wrapper.find('label').text()).to.be.equal(field.label);
     expect(wrapper.find('option')).to.have.length(3); // two options plus default message
   });
 

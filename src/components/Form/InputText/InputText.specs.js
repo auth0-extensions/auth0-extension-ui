@@ -33,7 +33,7 @@ describe('InputText', () => {
     ));
     expect(wrapper.find('input').props().id).to.be.equal(field.name);
     expect(wrapper.find('input').props().placeholder).to.be.equal(field.placeholder);
-    expect(wrapper.find('span').text()).to.be.equal(field.label);
+    expect(wrapper.find('label').text()).to.be.equal(field.label);
     expect(wrapper.find('input').props().type).to.be.equal('text'); // text is the default value
   });
   it('should have type number', () => {

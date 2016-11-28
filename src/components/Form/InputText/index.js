@@ -10,10 +10,10 @@ const InputText = field => {
 
   return (
     <div className={classes}>
-      <label htmlFor={field.name} style={{ width: '100%' }}>
-        <span style={{ display: 'inline-block', marginBottom: '5px' }}>
-          {field.label}
-        </span>
+      <label htmlFor={field.name} className="control-label col-xs-3">
+        {field.label}
+      </label>
+      <div className="col-xs-9">
         <input
           {...field.input}
           className="form-control"
@@ -21,8 +21,8 @@ const InputText = field => {
           type={field.type || 'text'}
           placeholder={field.placeholder}
         />
-      </label>
-      { field.validationErrors && validationErrors[field.name] && validationErrors[field.name].length && <div className="help-block">{ validationErrors[field.name][0] }</div> }
+        { field.validationErrors && validationErrors[field.name] && validationErrors[field.name].length && <div className="help-block">{ validationErrors[field.name][0] }</div> }
+      </div>
     </div>
   );
 };

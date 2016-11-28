@@ -28,14 +28,16 @@ class InputCombo extends Component {
 
     return (
       <div className={classes}>
-        <label htmlFor={input.name} style={{ width: '100%' }}>
-          <span style={{ display: 'inline-block', marginBottom: '5px' }}>{label}</span>
+        <label htmlFor={input.name} className="control-label col-xs-3">
+          {label}
+        </label>
+        <div className="col-xs-9">
           <select className="form-control" {...input} id={input.name} onChange={this.onChange} disabled={disabled} >
             { options && options.length > 1 && <option value="">Select your application...</option>}
             { this.renderOptions(options) }
           </select>
-        </label>
-        { validationErrors && validationErrors[name] && validationErrors[name].length && <div className="help-block">{ validationErrors[name][0] }</div> }
+          { validationErrors && validationErrors[name] && validationErrors[name].length && <div className="help-block">{ validationErrors[name][0] }</div> }
+        </div>
       </div>
     );
   }
