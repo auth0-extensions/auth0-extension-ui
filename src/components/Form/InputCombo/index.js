@@ -18,12 +18,22 @@ class InputCombo extends Component {
     ));
   }
 
+  renderErrors(validationErrors, meta, name) {
+    if (validationErrors && validationErrors[name] && validationErrors[name].length) {
+      return (<div className="help-block">{ validationErrors[name][0] }</div>);
+    } else if (meta && meta.touched && meta.error) {
+      return (<span className="help-block">{ meta.error }</span>);
+    }
+
+    return null;
+  }
+
   render() {
-    const { input, input: { name }, validationErrors, label, options, disabled } = this.props;
+    const { input, input: { name }, meta, validationErrors, label, options, disabled } = this.props;
 
     const classes = classNames({
       'form-group': true,
-      'has-error': validationErrors && validationErrors[name] && validationErrors[name].length
+      'has-error': (validationErrors && validationErrors[name] && validationErrors[name].length) || (meta && meta.touched && meta.error)
     });
 
     return (
@@ -36,7 +46,7 @@ class InputCombo extends Component {
             { options && options.length > 1 && <option value="">Select your application...</option>}
             { this.renderOptions(options) }
           </select>
-          { validationErrors && validationErrors[name] && validationErrors[name].length && <div className="help-block">{ validationErrors[name][0] }</div> }
+          { this.renderErrors(validationErrors, meta, name) }
         </div>
       </div>
     );
@@ -47,6 +57,7 @@ InputCombo.propTypes = {
   options: PropTypes.array.isRequired,
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
+  meta: PropTypes.object,
   validationErrors: PropTypes.object,
   onChange: PropTypes.func,
   disabled: PropTypes.bool

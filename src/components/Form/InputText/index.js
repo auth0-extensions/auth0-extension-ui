@@ -7,7 +7,7 @@ class InputText extends Component {
     if (validationErrors && validationErrors[name] && validationErrors[name].length) {
       return (<div className="help-block">{ validationErrors[name][0] }</div>);
     } else if (meta && meta.touched && meta.error) {
-      return (<span className="help-block">{meta.error}</span>);
+      return (<span className="help-block">{ meta.error }</span>);
     }
 
     return null;
