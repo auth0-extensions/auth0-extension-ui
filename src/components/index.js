@@ -1,4 +1,5 @@
 // Form components.
+import InputCheckBox from './Form/InputCheckBox';
 import InputText from './Form/InputText';
 import InputCombo from './Form/InputCombo';
 import InputSwitchItem from './Form/InputSwitchItem';
@@ -51,6 +52,7 @@ import TableTotals from './Table/TableTotals';
 import TableAction from './Table/TableAction';
 
 export {
+  InputCheckBox,
   InputText,
   InputCombo,
   InputSwitchItem,
