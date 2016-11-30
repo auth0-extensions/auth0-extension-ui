@@ -26,11 +26,7 @@ class InputCheckBox extends Component {
           {label}
         </label>
         <div className="col-xs-9">
-          <input
-            {...input}
-            id={name}
-            type="checkbox"
-          />
+          <input {...input} id={name} type="checkbox" checked={input.value} />
           { this.renderErrors(validationErrors, meta, name) }
         </div>
       </div>
