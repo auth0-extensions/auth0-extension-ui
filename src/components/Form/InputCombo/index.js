@@ -29,7 +29,7 @@ class InputCombo extends Component {
   }
 
   render() {
-    const { input, input: { name }, meta, validationErrors, label, options, disabled } = this.props;
+    const { input, input: { name }, meta, placeholder, validationErrors, label, options, disabled } = this.props;
 
     const classes = classNames({
       'form-group': true,
@@ -43,7 +43,7 @@ class InputCombo extends Component {
         </label>
         <div className="col-xs-9">
           <select className="form-control" {...input} id={input.name} onChange={this.onChange} disabled={disabled} >
-            { options && options.length > 1 && <option value="">Select your application...</option>}
+            { options && options.length > 1 && <option value="">{placeholder}</option>}
             { this.renderOptions(options) }
           </select>
           { this.renderErrors(validationErrors, meta, name) }
@@ -56,6 +56,7 @@ class InputCombo extends Component {
 InputCombo.propTypes = {
   options: PropTypes.array.isRequired,
   input: PropTypes.object.isRequired,
+  placeholder: PropTypes.string,
   label: PropTypes.string.isRequired,
   meta: PropTypes.object,
   validationErrors: PropTypes.object,
