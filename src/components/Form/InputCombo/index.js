@@ -28,6 +28,18 @@ class InputCombo extends Component {
     return null;
   }
 
+  renderElement(input, meta, placeholder, validationErrors, options, disabled) {
+    return (
+      <div>
+        <select className="form-control" {...input} id={input.name} onChange={this.onChange} disabled={disabled} >
+          { options && options.length > 1 && <option value="">{placeholder}</option>}
+          { this.renderOptions(options) }
+        </select>
+        { this.renderErrors(validationErrors, meta, name) }
+      </div>
+    );
+  }
+
   render() {
     const { input, input: { name }, meta, placeholder, validationErrors, label, options, disabled } = this.props;
 
@@ -36,17 +48,17 @@ class InputCombo extends Component {
       'has-error': (validationErrors && validationErrors[name] && validationErrors[name].length) || (meta && meta.touched && meta.error)
     });
 
+    if (!label) {
+      return this.renderElement(input, meta, placeholder, validationErrors, options, disabled);
+    }
+
     return (
       <div className={classes}>
         <label htmlFor={input.name} className="control-label col-xs-3">
           {label}
         </label>
         <div className="col-xs-9">
-          <select className="form-control" {...input} id={input.name} onChange={this.onChange} disabled={disabled} >
-            { options && options.length > 1 && <option value="">{placeholder}</option>}
-            { this.renderOptions(options) }
-          </select>
-          { this.renderErrors(validationErrors, meta, name) }
+          { this.renderElement(input, meta, placeholder, validationErrors, options, disabled) }
         </div>
       </div>
     );

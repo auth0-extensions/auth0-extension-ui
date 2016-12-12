@@ -48,4 +48,12 @@ storiesOf('InputText', module)
       validationErrors: { FieldName: [ 'Required' ] }
     };
     return renderField(field);
+  })
+  .add('without label', () => {
+    const field = {
+      name: 'FieldName',
+      placeholder: 'My placeholder',
+      validationErrors: { }
+    };
+    return renderField(field);
   });

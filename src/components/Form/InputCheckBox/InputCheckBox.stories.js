@@ -34,4 +34,10 @@ storiesOf('InputCheckBox', module)
       validationErrors: { FieldName: [ 'Required' ] }
     };
     return renderField(field);
+  })
+  .add('without label', () => {
+    const field = {
+      name: 'FieldName'
+    };
+    return renderField(field);
   });

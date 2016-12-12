@@ -13,6 +13,21 @@ class InputText extends Component {
     return null;
   }
 
+  renderElement(input, name, meta, type, placeholder, validationErrors) {
+    return (
+      <div>
+        <input
+          {...input}
+          className="form-control"
+          id={name}
+          type={type || 'text'}
+          placeholder={placeholder}
+        />
+        { this.renderErrors(validationErrors, meta, name) }
+      </div>
+    );
+  }
+
   render() {
     const { input, name, meta, type, placeholder, validationErrors, label } = this.props;
 
@@ -21,20 +36,17 @@ class InputText extends Component {
       'has-error': (validationErrors && validationErrors[name] && validationErrors[name].length) || (meta && meta.touched && meta.error)
     });
 
+    if (!label) {
+      return this.renderElement(input, name, meta, type, placeholder, validationErrors);
+    }
+
     return (
       <div className={classes}>
         <label htmlFor={name} className="control-label col-xs-3">
           {label}
         </label>
         <div className="col-xs-9">
-          <input
-            {...input}
-            className="form-control"
-            id={name}
-            type={type || 'text'}
-            placeholder={placeholder}
-          />
-          { this.renderErrors(validationErrors, meta, name) }
+          { this.renderElement(input, name, meta, type, placeholder, validationErrors) }
         </div>
       </div>
     );

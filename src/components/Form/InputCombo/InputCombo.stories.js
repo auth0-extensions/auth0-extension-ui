@@ -40,4 +40,12 @@ storiesOf('InputCombo', module)
       validationErrors: { FieldName: [ 'Required' ] }
     };
     return renderField(field);
+  })
+  .add('without label', () => {
+    const field = {
+      name: 'FieldName',
+      placeholder: 'My placeholder',
+      options: [ { value: 1, text: 'Option 1' }, { value: 2, text: 'Option 2' } ]
+    };
+    return renderField(field);
   });
