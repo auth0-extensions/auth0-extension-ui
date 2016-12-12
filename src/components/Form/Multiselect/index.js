@@ -6,6 +6,14 @@ import './Multiselect.styl';
 class Multiselect extends Component {
 
   renderValue(value) {
+    if (value.label === value.value) {
+      return (
+        <span>
+          <strong>{value.label}</strong>
+        </span>
+      );
+    }
+
     return (
       <span>
         <strong>{value.label}</strong>
