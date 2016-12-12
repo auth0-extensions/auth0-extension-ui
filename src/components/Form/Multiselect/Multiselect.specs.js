@@ -15,6 +15,7 @@ describe('Multiselect', () => {
   beforeEach((done) => {
     field = {
       name: 'FieldName',
+      placeholder: 'my placeholder',
       loadOptions: (input, callback) => {
         callback(null, {
           options: [
@@ -30,6 +31,7 @@ describe('Multiselect', () => {
     wrapper = mount(addFormDecorator(
       <Field
         name={field.name}
+        placeholder={field.placeholder}
         component={Multiselect}
         loadOptions={field.loadOptions}
       />

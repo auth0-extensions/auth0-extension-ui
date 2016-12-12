@@ -8,12 +8,12 @@ import { Provider, store } from '../../utils/formUtils';
 
 function renderField(field) {
   return (
-      <Field
-        name={field.name}
-        component={InputCheckBox}
-        label={field.label}
-        validationErrors={field.validationErrors}
-      />
+    <Field
+      name={field.name}
+      component={InputCheckBox}
+      label={field.label}
+      validationErrors={field.validationErrors}
+    />
   );
 }
 

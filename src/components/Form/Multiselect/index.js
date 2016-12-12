@@ -15,7 +15,7 @@ class Multiselect extends Component {
   }
 
   render() {
-    const { input, loadOptions } = this.props;
+    const { input, placeholder, loadOptions } = this.props;
 
     // NOTE: see https://github.com/erikras/redux-form/issues/82 for onBlur() react-select docs
     return (
@@ -27,7 +27,7 @@ class Multiselect extends Component {
         optionRenderer={this.renderValue}
         valueRenderer={this.renderValue}
         onBlur={() => input.onBlur()}
-        placeholder="Add members to the group"
+        placeholder={placeholder}
         multi
       />
     );
@@ -37,7 +37,8 @@ class Multiselect extends Component {
 Multiselect.propTypes = {
   loadOptions: PropTypes.func.isRequired,
   onBlur: PropTypes.func,
-  input: PropTypes.object
+  input: PropTypes.object,
+  placeholder: PropTypes.string
 };
 
 export default Multiselect;
