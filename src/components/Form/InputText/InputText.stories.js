@@ -8,14 +8,15 @@ import { Provider, store } from '../../utils/formUtils';
 
 function renderField(field) {
   return (
-      <Field
-        name={field.name}
-        component={InputText}
-        label={field.label}
-        placeholder={field.placeholder}
-        validationErrors={field.validationErrors}
-        type={field.type}
-      />
+    <Field
+      name={field.name}
+      component={InputText}
+      label={field.label}
+      placeholder={field.placeholder}
+      validationErrors={field.validationErrors}
+      type={field.type}
+      disabled={field.disabled}
+    />
   );
 }
 
@@ -54,6 +55,15 @@ storiesOf('InputText', module)
       name: 'FieldName',
       placeholder: 'My placeholder',
       validationErrors: { }
+    };
+    return renderField(field);
+  })
+  .add('may be disabled', () => {
+    const field = {
+      name: 'FieldName',
+      placeholder: 'My placeholder',
+      validationErrors: { },
+      disabled: true
     };
     return renderField(field);
   });

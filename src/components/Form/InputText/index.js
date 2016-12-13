@@ -13,7 +13,7 @@ class InputText extends Component {
     return null;
   }
 
-  renderElement(input, name, meta, type, placeholder, validationErrors) {
+  renderElement(input, name, meta, type, placeholder, validationErrors, disabled) {
     return (
       <div>
         <input
@@ -22,6 +22,7 @@ class InputText extends Component {
           id={name}
           type={type || 'text'}
           placeholder={placeholder}
+          disabled={disabled}
         />
         { this.renderErrors(validationErrors, meta, name) }
       </div>
@@ -29,7 +30,7 @@ class InputText extends Component {
   }
 
   render() {
-    const { input, name, meta, type, placeholder, validationErrors, label } = this.props;
+    const { input, name, meta, type, placeholder, validationErrors, label, disabled } = this.props;
 
     const classes = classNames({
       'form-group': true,
@@ -37,7 +38,7 @@ class InputText extends Component {
     });
 
     if (!label) {
-      return this.renderElement(input, name, meta, type, placeholder, validationErrors);
+      return this.renderElement(input, name, meta, type, placeholder, validationErrors, disabled);
     }
 
     return (
@@ -46,7 +47,7 @@ class InputText extends Component {
           {label}
         </label>
         <div className="col-xs-9">
-          { this.renderElement(input, name, meta, type, placeholder, validationErrors) }
+          { this.renderElement(input, name, meta, type, placeholder, validationErrors, disabled) }
         </div>
       </div>
     );
@@ -60,7 +61,8 @@ InputText.propTypes = {
   placeholder: PropTypes.string.isRequired,
   validationErrors: PropTypes.object,
   meta: PropTypes.object,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  disabled: PropTypes.bool
 };
 
 export default InputText;
