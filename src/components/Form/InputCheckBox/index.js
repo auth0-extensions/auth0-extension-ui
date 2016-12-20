@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
-class InputText extends Component {
-
+class InputCheckBox extends Component {
   renderErrors(validationErrors, meta, name) {
     if (validationErrors && validationErrors[name] && validationErrors[name].length) {
       return (<div className="help-block">{ validationErrors[name][0] }</div>);
@@ -13,24 +12,17 @@ class InputText extends Component {
     return null;
   }
 
-  renderElement(input, name, meta, type, placeholder, validationErrors, disabled) {
+  renderElement(input, name, meta, validationErrors) {
     return (
       <div>
-        <input
-          {...input}
-          className="form-control"
-          id={name}
-          type={type || 'text'}
-          placeholder={placeholder}
-          disabled={disabled}
-        />
+        <input {...input} id={name} type="checkbox" checked={input.value} />
         { this.renderErrors(validationErrors, meta, name) }
       </div>
     );
   }
 
   render() {
-    const { input, name, meta, type, placeholder, validationErrors, label, disabled } = this.props;
+    const { input, name, meta, validationErrors, label } = this.props;
 
     const classes = classNames({
       'form-group': true,
@@ -38,7 +30,7 @@ class InputText extends Component {
     });
 
     if (!label) {
-      return this.renderElement(input, name, meta, type, placeholder, validationErrors, disabled);
+      return this.renderElement(input, name, meta, validationErrors);
     }
 
     return (
@@ -47,22 +39,19 @@ class InputText extends Component {
           {label}
         </label>
         <div className="col-xs-9">
-          { this.renderElement(input, name, meta, type, placeholder, validationErrors, disabled) }
+          { this.renderElement(input, name, meta, validationErrors) }
         </div>
       </div>
     );
   }
 }
 
-InputText.propTypes = {
+InputCheckBox.propTypes = {
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  placeholder: PropTypes.string.isRequired,
   validationErrors: PropTypes.object,
   meta: PropTypes.object,
-  name: PropTypes.string.isRequired,
-  disabled: PropTypes.bool
+  name: PropTypes.string.isRequired
 };
 
-export default InputText;
+export default InputCheckBox;

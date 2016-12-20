@@ -14,6 +14,7 @@ describe('InputCombo', () => {
     const field = {
       name: 'FieldName',
       label: 'My Label',
+      placeholder: 'My placeholder',
       options: [ ]
     };
     const wrapper = mount(addFormDecorator(
@@ -21,6 +22,7 @@ describe('InputCombo', () => {
         name={field.name}
         component={InputCombo}
         label={field.label}
+        placeholder={field.placeholder}
         options={field.options}
       />
     ));
@@ -31,6 +33,7 @@ describe('InputCombo', () => {
     const field = {
       name: 'FieldName',
       label: 'My Label',
+      placeholder: 'My placeholder',
       options: [ { value: 1, text: 'Option 1' }, { value: 2, text: 'Option 2' } ]
     };
 
@@ -39,11 +42,12 @@ describe('InputCombo', () => {
         name={field.name}
         component={InputCombo}
         label={field.label}
+        placeholder={field.placeholder}
         options={field.options}
       />
     ));
     expect(wrapper.find('select').props().id).to.be.equal(field.name);
-    expect(wrapper.find('span').text()).to.be.equal(field.label);
+    expect(wrapper.find('label').text()).to.be.equal(field.label);
     expect(wrapper.find('option')).to.have.length(3); // two options plus default message
   });
 
@@ -51,6 +55,7 @@ describe('InputCombo', () => {
     const field = {
       name: 'FieldName',
       label: 'My Label',
+      placeholder: 'My placeholder',
       options: [ ]
     };
     const onChange = sinon.spy();
@@ -60,6 +65,7 @@ describe('InputCombo', () => {
         name={field.name}
         component={InputCombo}
         label={field.label}
+        placeholder={field.placeholder}
         options={field.options}
         onChange={onChange}
       />

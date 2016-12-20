@@ -1,4 +1,5 @@
 // Form components.
+import InputCheckBox from './Form/InputCheckBox';
 import InputText from './Form/InputText';
 import InputCombo from './Form/InputCombo';
 import InputSwitchItem from './Form/InputSwitchItem';
@@ -11,7 +12,10 @@ import EntityHeader from './Header/EntityHeader';
 import SectionHeader from './Header/SectionHeader';
 
 // Messages components.
+import Alert from './Messages/Alert';
 import Error from './Messages/Error';
+import Info from './Messages/Info';
+import Success from './Messages/Success';
 
 // Modal components.
 import Confirm from './Modal/Confirm';
@@ -48,6 +52,7 @@ import TableTotals from './Table/TableTotals';
 import TableAction from './Table/TableAction';
 
 export {
+  InputCheckBox,
   InputText,
   InputCombo,
   InputSwitchItem,
@@ -56,7 +61,10 @@ export {
   Multiselect,
   EntityHeader,
   SectionHeader,
+  Alert,
   Error,
+  Info,
+  Success,
   Confirm,
   BlankState,
   CodeEditor,

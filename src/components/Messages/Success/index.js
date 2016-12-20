@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Alert from '../Alert';
 
-class Error extends Component {
+class Success extends Component {
   static defaultProps = {
     show: true
   }
@@ -10,8 +10,8 @@ class Error extends Component {
     return (
       <Alert
         show={this.props.show}
-        type="danger"
-        title="Oh snap!"
+        type="success"
+        title="Well done!"
         message={this.props.message}
         onDismiss={this.props.onDismiss}
       >
@@ -21,11 +21,11 @@ class Error extends Component {
   }
 }
 
-Error.propTypes = {
+Success.propTypes = {
   show: React.PropTypes.bool,
   message: React.PropTypes.string,
   onDismiss: React.PropTypes.func,
   children: React.PropTypes.node
 };
 
-export default Error;
+export default Success;

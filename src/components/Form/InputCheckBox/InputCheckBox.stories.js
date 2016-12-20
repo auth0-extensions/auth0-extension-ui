@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import { Field } from 'redux-form';
 
-import InputText from './';
+import InputCheckBox from './';
 import FakeForm from '../../utils/FakeForm';
 import { Provider, store } from '../../utils/formUtils';
 
@@ -10,34 +10,20 @@ function renderField(field) {
   return (
     <Field
       name={field.name}
-      component={InputText}
+      component={InputCheckBox}
       label={field.label}
-      placeholder={field.placeholder}
       validationErrors={field.validationErrors}
-      type={field.type}
-      disabled={field.disabled}
     />
   );
 }
 
-storiesOf('InputText', module)
+storiesOf('InputCheckBox', module)
   .addDecorator(story => (<Provider store={store}><FakeForm>{story()}</FakeForm></Provider>))
-  .add('default view (text)', () => {
+  .add('default view', () => {
     const field = {
       name: 'FieldName',
       label: 'My Label',
-      placeholder: 'My placeholder',
       validationErrors: { }
-    };
-    return renderField(field);
-  })
-  .add('default view (number)', () => {
-    const field = {
-      name: 'FieldName',
-      label: 'My Label',
-      placeholder: 'My number',
-      validationErrors: { },
-      type: 'number'
     };
     return renderField(field);
   })
@@ -45,25 +31,13 @@ storiesOf('InputText', module)
     const field = {
       name: 'FieldName',
       label: 'My Label',
-      placeholder: 'My placeholder',
       validationErrors: { FieldName: [ 'Required' ] }
     };
     return renderField(field);
   })
   .add('without label', () => {
     const field = {
-      name: 'FieldName',
-      placeholder: 'My placeholder',
-      validationErrors: { }
-    };
-    return renderField(field);
-  })
-  .add('may be disabled', () => {
-    const field = {
-      name: 'FieldName',
-      placeholder: 'My placeholder',
-      validationErrors: { },
-      disabled: true
+      name: 'FieldName'
     };
     return renderField(field);
   });

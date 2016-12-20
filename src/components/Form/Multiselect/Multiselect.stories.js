@@ -10,6 +10,7 @@ function renderField(field) {
   return (
     <Field
       name={field.name}
+      placeholder={field.placeholder}
       component={Multiselect}
       loadOptions={field.loadOptions}
     />
@@ -21,6 +22,7 @@ storiesOf('Multiselect', module)
   .add('default view', () => {
     const field = {
       name: 'FieldName',
+      placeholder: 'my placeholder',
       loadOptions: (input, callback) => {
         callback(null, {
           options: [
