@@ -26,4 +26,11 @@ storiesOf('ScopeGroup', module)
       options: [ { value: 'op1', text: 'Option 1' }, { value: 'op2', text: 'Option 2' } ]
     };
     return renderField(field);
+  })
+  .add('without label', () => {
+    const field = {
+      name: 'FieldName',
+      options: [ { value: 'op1', text: 'Option 1' }, { value: 'op2', text: 'Option 2' } ]
+    };
+    return renderField(field);
   });
