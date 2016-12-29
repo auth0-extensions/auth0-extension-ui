@@ -14,7 +14,7 @@
     "lint": "eslint src",
     "lintfix": "eslint src --fix",
     "testonly": "mocha --require .scripts/mocha_runner --require ignore-styles src/**/components/**/*.specs.js",
-    "test": "npm run lint && npm run testonly",
+    "test": "npm run testonly",
     "test-watch": "npm run testonly -- --watch --watch-extensions js",
     "storybook": "start-storybook -p 9010",
     "publish-storybook": "NODE_ENV=development bash .scripts/publish_storybook.sh",
