@@ -28,12 +28,12 @@ Components are divided in different categories taking into account their respons
 
 ### Categories
 - `Form`: components inside `src/components/Form` are components that should be used in forms and use [redux-form v6](https://redux-form.com). Note that these components may or may not accept `label` property, which is going to render them differently;
-- Header: contains headers for pages;
-- Messages: has Alert components (for success, error, etc messages);
-- Modal: custom components for modals;
-- Page: this folder has components that do not fit in any other category. For example, a CodeEditor, Pagination or LoadingPanel;
-- Sidebar: html references on side menus;
-- Tab: custom auth0 tabs;
-- Table: custom table components.
+- `Header`: contains headers for pages;
+- `Messages`: has Alert components (for success, error, etc messages);
+- `Modal`: custom components for modals;
+- `Page`: this folder has components that do not fit in any other category. For example, a CodeEditor, Pagination or LoadingPanel;
+- `Sidebar`: html references on side menus;
+- `Tab`: custom auth0 tabs;
+- `Table`: custom table components.
 
 For any components, you could have some examples on how to use components looking at `[component].stories.js` and `[component].specs.js` files. In the component definition, the `propTypes` define which properties a component may receive and which ones are required properties.
