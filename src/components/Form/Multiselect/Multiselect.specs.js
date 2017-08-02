@@ -50,4 +50,34 @@ describe('Multiselect', () => {
     expect(wrapper.find('input').props().value).to.equal('ariel');
     expect(wrapper.find('input')).to.have.length(1);
   });
+  it('should not have a label field', () => {
+    expect(wrapper.find('label.react-multiselect-label').exists()).to.be.false; // eslint-disable-line no-unused-expressions
+  });
+  it('should have a label html element when a label value is set', () => {
+    const wrappedField = mount(addFormDecorator(
+      <Field
+        name={field.name}
+        placeholder={field.placeholder}
+        component={Multiselect}
+        loadOptions={field.loadOptions}
+        label="My Label"
+      />
+    ));
+    expect(wrappedField.find('label.react-multiselect-label').exists()).to.be.true; // eslint-disable-line no-unused-expressions
+    expect(wrappedField.find('label.react-multiselect-label')).to.have.length(1);
+    expect(wrappedField.find('label').text()).to.equal('My Label');
+  });
+  it('should set the name as the htmlFor on the label element', () => {
+    const wrappedField = mount(addFormDecorator(
+      <Field
+        name="custom-field-name"
+        placeholder={field.placeholder}
+        component={Multiselect}
+        loadOptions={field.loadOptions}
+        label="My Label"
+      />
+    ));
+    expect(wrappedField.find('[htmlFor="custom-field-name"]').exists()).to.be.true; // eslint-disable-line no-unused-expressions
+    expect(wrappedField.find('[htmlFor="custom-field-name"]')).to.have.length(1);
+  });
 });

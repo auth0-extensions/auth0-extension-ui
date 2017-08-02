@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import { Field } from 'redux-form';
 
-import Multiselect from './';
+import Select from './';
 import FakeForm from '../../utils/FakeForm';
 import { Provider, store } from '../../utils/formUtils';
 
@@ -11,7 +11,7 @@ function renderField(field) {
     <Field
       name={field.name}
       placeholder={field.placeholder}
-      component={Multiselect}
+      component={Select}
       loadOptions={field.loadOptions}
       label={field.label}
       multi={field.multi}
@@ -19,7 +19,7 @@ function renderField(field) {
   );
 }
 
-storiesOf('Multiselect', module)
+storiesOf('Select', module)
   .addDecorator(story => (<Provider store={store}><FakeForm>{story()}</FakeForm></Provider>))
   .add('default view', () => {
     const field = {
