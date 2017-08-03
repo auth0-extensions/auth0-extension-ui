@@ -20,7 +20,7 @@ class InputText extends Component {
           {...input}
           className="form-control"
           id={name}
-          type={type || 'text'}
+          type={type || 'text'} 
           placeholder={placeholder}
           disabled={disabled}
         />
@@ -30,8 +30,8 @@ class InputText extends Component {
   }
 
   render() {
-    const { input, name, meta, type, placeholder, validationErrors, label, disabled } = this.props;
-
+    const { input, meta, type, placeholder, validationErrors, label, disabled } = this.props;
+    const name = this.props.name || (input ? input.name : undefined);
     const classes = classNames({
       'form-group': true,
       'has-error': (validationErrors && validationErrors[name] && validationErrors[name].length) || (meta && meta.touched && meta.error)

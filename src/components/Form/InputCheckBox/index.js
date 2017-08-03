@@ -22,8 +22,8 @@ class InputCheckBox extends Component {
   }
 
   render() {
-    const { input, name, meta, validationErrors, label } = this.props;
-
+    const { input, meta, validationErrors, label } = this.props;
+    const name = this.props.name || (input ? input.name : undefined);
     const classes = classNames({
       'form-group': true,
       'has-error': (validationErrors && validationErrors[name] && validationErrors[name].length) || (meta && meta.touched && meta.error)
