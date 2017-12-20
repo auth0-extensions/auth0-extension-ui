@@ -4546,6 +4546,7 @@ jade@*, "jade@1.1 - 1.11":
     jstransformer "0.0.2"
     mkdirp "~0.5.0"
     transformers "2.1.0"
+    uglify-js "^2.4.19"
     void-elements "~2.0.1"
     with "~4.0.0"
 
@@ -6556,11 +6557,10 @@ react-fuzzy@^0.3.3:
     classnames "^2.2.3"
     fuse.js "^2.2.0"
 
-react-input-autosize@^1.1.0:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-1.1.4.tgz#cbc45072d4084ddc57806db8e3b34e644b8366ac"
+react-input-autosize@^2.1.0:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-2.1.2.tgz#a3dc11a5517c434db25229925541309de3f7a8f5"
   dependencies:
-    create-react-class "^15.5.2"
     prop-types "^15.5.8"
 
 react-inspector@^1.1.0:
@@ -6645,12 +6645,13 @@ react-router@^2.8.1:
     loose-envify "^1.2.0"
     warning "^3.0.0"
 
-react-select@1.0.0-rc.1:
-  version "1.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/react-select/-/react-select-1.0.0-rc.1.tgz#56d0c8db0ce7b822f3f8ababe3fb491ff8e9c7cf"
+react-select@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-select/-/react-select-1.1.0.tgz#626a2de839fdea2ade74dd1b143a9bde34be6c82"
   dependencies:
     classnames "^2.2.4"
-    react-input-autosize "^1.1.0"
+    prop-types "^15.5.8"
+    react-input-autosize "^2.1.0"
 
 react-simple-di@^1.2.0:
   version "1.2.0"
@@ -7843,6 +7844,15 @@ typedarray@^0.0.6:
 ua-parser-js@^0.7.9:
   version "0.7.14"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.14.tgz#110d53fa4c3f326c121292bbeac904d2e03387ca"
+
+uglify-js@^2.4.19:
+  version "2.8.29"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.29.tgz#29c5733148057bb4e1f75df35b7a9cb72e6a59dd"
+  dependencies:
+    source-map "~0.5.1"
+    yargs "~3.10.0"
+  optionalDependencies:
+    uglify-to-browserify "~1.0.0"
 
 uglify-js@^2.7.0, uglify-js@~2.7.3:
   version "2.7.5"
