@@ -10,6 +10,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && NODE_ENV=production webpack --config ./.storybook/webpack.config.js --colors -p",
+    "build-dev": "npm run clean && NODE_ENV=development webpack -d --config ./.storybook/webpack.config.js --colors",
     "release": "npm run build && git tag $npm_package_version && git push && git push --tags && npm publish",
     "lint": "eslint src",
     "lintfix": "eslint src --fix",

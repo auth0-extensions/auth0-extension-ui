@@ -17,7 +17,7 @@ module.exports = function (config) {
     loader: 'url?limit=100000'
   });
 
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development') {
     config.externals = {
      'redux': 'commonjs redux',
      'react': 'commonjs react',
@@ -39,6 +39,8 @@ module.exports = function (config) {
       library: true,
       libraryTarget: 'commonjs2'
     };
+
+    if (process.env.NODE_ENV === 'development') config.debug = true;
   }
 
   return config;
