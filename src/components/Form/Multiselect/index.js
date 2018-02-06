@@ -86,7 +86,6 @@ Multiselect.propTypes = {
   multi: PropTypes.bool,
   label: PropTypes.string,
   name: PropTypes.string,
-  simpleValue: PropTypes.bool,
   validationErrors: PropTypes.object,
   meta: PropTypes.object
 };
