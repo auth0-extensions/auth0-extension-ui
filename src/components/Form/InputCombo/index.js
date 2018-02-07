@@ -42,7 +42,6 @@ class InputCombo extends Component {
 
   render() {
     const { input, input: { name }, meta, placeholder, validationErrors, label, options, disabled } = this.props;
-
     const classes = classNames({
       'form-group': true,
       'has-error': (validationErrors && validationErrors[name] && validationErrors[name].length) || (meta && meta.touched && meta.error)
