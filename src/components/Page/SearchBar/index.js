@@ -37,7 +37,7 @@ class SearchBar extends Component {
   renderInstructions = () => {
     if (this.props.instructionsText) {
       return (
-        <div className="help-block">{this.props.instructionsText}</div>
+        <div className="col-xs-12 help-block">{this.props.instructionsText}</div>
       );
     }
 
