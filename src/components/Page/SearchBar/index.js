@@ -1,6 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 
 class SearchBar extends Component {
+  static defaultProps = {
+    resetButtonText: 'Reset'
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -9,6 +13,7 @@ class SearchBar extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
   }
+
   handleChange(event) {
     this.setState({
       selectedOption: this.props.searchOptions.find(opt => opt.value === event.target.value)
@@ -18,6 +23,7 @@ class SearchBar extends Component {
       }
     });
   }
+
   handleSearchValueChange = (ev) => {
     this.setState({
       searchValue: ev.target.value
@@ -26,7 +32,23 @@ class SearchBar extends Component {
         this.props.handleInputChange(this.state.searchValue);
       }
     });
-  }
+  };
+
+  renderInstructions = () => {
+    if (this.props.instructionsText) {
+      return (
+        <div className="col-xs-12 help-block">{this.props.instructionsText}</div>
+      );
+    }
+
+    return (
+      <div className="col-xs-12 help-block">
+        To perform your search, press <span className="keyboard-button">enter</span>.
+        You can also search for specific fields, eg: <strong>email:"john@doe.com"</strong>.
+      </div>
+    );
+  };
+
   render() {
     const { placeholder, iconCode, searchOptions, handleKeyPress, handleReset, showInstructions } = this.props;
     return (
@@ -54,15 +76,10 @@ class SearchBar extends Component {
                 </select>
               </div>
             ) : null }
-            { handleReset && <button type="reset" style={{ marginLeft: 0 }} onClick={handleReset}>Reset <i className="icon-budicon-471" /></button> }
+            { handleReset && <button type="reset" style={{ marginLeft: 0 }} onClick={handleReset}>{this.props.resetButtonText} <i className="icon-budicon-471" /></button> }
           </span>
         </form>
-        { showInstructions &&
-          <div className="col-xs-12 help-block">
-            To perform your search, press <span className="keyboard-button">enter</span>.
-            You can also search for specific fields, eg: <strong>email:"john@doe.com"</strong>.
-          </div>
-        }
+        { showInstructions && this.renderInstructions()}
       </div>
     );
   }
@@ -83,7 +100,9 @@ SearchBar.propTypes = {
   handleReset: PropTypes.func,
   handleOptionChange: PropTypes.func,
   handleInputChange: PropTypes.func,
-  showInstructions: PropTypes.bool
+  showInstructions: PropTypes.bool,
+  instructionsText: PropTypes.string,
+  resetButtonText: PropTypes.string
 };
 
 export default SearchBar;

@@ -2,6 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { Button } from 'react-bootstrap';
 
 class Pagination extends Component {
+  static defaultProps = {
+    textFormat: 'Page {current} of {total}'
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -19,6 +23,10 @@ class Pagination extends Component {
     });
   }
 
+  buildText(format, current, total) {
+    return format.replace('{current}', current).replace('{total}', total);
+  }
+
   render() {
     if (this.props.totalItems === 0) return null;
 
@@ -27,7 +35,7 @@ class Pagination extends Component {
     return (
       <div className="row">
         <div className="col-xs-8">
-          Page {this.state.activePage} of {pages}
+          {this.buildText(this.props.textFormat, this.state.activePage, pages)}
         </div>
         <div className="col-xs-4">
           <Button bsSize="small" className="pull-right"
@@ -51,7 +59,8 @@ class Pagination extends Component {
 Pagination.propTypes = {
   handlePageChange: PropTypes.func.isRequired,
   totalItems: PropTypes.number.isRequired,
-  perPage: PropTypes.number.isRequired
+  perPage: PropTypes.number.isRequired,
+  textFormat: PropTypes.string
 };
 
 export default Pagination;

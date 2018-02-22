@@ -1,8 +1,17 @@
 import React, { PropTypes } from 'react';
 
-const TableTotals = ({ currentCount, totalCount }) => {
+const TableTotals = ({ currentCount, totalCount, textFormat }) => {
   if (currentCount === 0 || totalCount === 0) {
     return <div />;
+  }
+
+  const text = textFormat || '';
+  if (textFormat) {
+    return (
+      <div className="actions-group pull-left">
+        {text.replace('{total}', totalCount).replace('{current}', currentCount)}
+      </div>
+    );
   }
 
   return (
@@ -14,7 +23,8 @@ const TableTotals = ({ currentCount, totalCount }) => {
 
 TableTotals.propTypes = {
   currentCount: PropTypes.number,
-  totalCount: PropTypes.number
+  totalCount: PropTypes.number,
+  textFormat: PropTypes.string
 };
 
 export default TableTotals;

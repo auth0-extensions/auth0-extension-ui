@@ -3,7 +3,8 @@ import Alert from '../Alert';
 
 class Error extends Component {
   static defaultProps = {
-    show: true
+    show: true,
+    title: 'Oh snap!'
   }
 
   render() {
@@ -11,7 +12,7 @@ class Error extends Component {
       <Alert
         show={this.props.show}
         type="danger"
-        title="Oh snap!"
+        title={this.props.title}
         message={this.props.message}
         onDismiss={this.props.onDismiss}
       >
@@ -23,6 +24,7 @@ class Error extends Component {
 
 Error.propTypes = {
   show: React.PropTypes.bool,
+  title: React.PropTypes.string,
   message: React.PropTypes.string,
   onDismiss: React.PropTypes.func,
   children: React.PropTypes.node
