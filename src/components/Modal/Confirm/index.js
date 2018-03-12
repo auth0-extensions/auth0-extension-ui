@@ -6,7 +6,7 @@ class Confirm extends Component {
     if (this.props.onCancel) {
       return (
         <Button className="button-cancel" bsStyle="transparent" bsSize="large" disabled={this.props.loading} onClick={this.props.onCancel}>
-          Cancel
+          { this.props.cancelMessage || 'Cancel' }
         </Button>
       );
     }
@@ -29,7 +29,7 @@ class Confirm extends Component {
   render() {
     return (
       <Modal className={this.props.className} dialogClassName={this.props.dialogClassName} show={this.props.show} onHide={this.props.onCancel}>
-        <Modal.Header className="has-border" closeButton={!this.props.loading}>
+        <Modal.Header className="has-border" closeButton={!this.props.loading} closeLabel={this.props.closeLabel || ''}>
           <Modal.Title>{this.props.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -47,12 +47,14 @@ class Confirm extends Component {
 Confirm.propTypes = {
   dialogClassName: PropTypes.string,
   confirmMessage: PropTypes.string,
+  cancelMessage: PropTypes.string,
   loading: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   show: PropTypes.bool.isRequired,
   onCancel: PropTypes.func.isRequired,
   onConfirm: PropTypes.func,
   className: PropTypes.string,
+  closeLabel: PropTypes.string,
   children: PropTypes.node
 };
 

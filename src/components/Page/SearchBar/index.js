@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 
 class SearchBar extends Component {
   static defaultProps = {
-    resetButtonText: 'Reset'
+    resetButtonText: 'Reset',
+    inputId: ''
   }
 
   constructor(props) {
@@ -50,7 +51,7 @@ class SearchBar extends Component {
   };
 
   render() {
-    const { placeholder, iconCode, searchOptions, handleKeyPress, handleReset, showInstructions } = this.props;
+    const { placeholder, iconCode, searchOptions, handleKeyPress, handleReset, showInstructions, inputId } = this.props;
     return (
       <div>
         <form className="advanced-search-control">
@@ -59,7 +60,7 @@ class SearchBar extends Component {
             <input
               className="user-input" type="text" placeholder={placeholder || 'Search'}
               spellCheck="false" style={{ marginLeft: '10px' }} onKeyPress={handleKeyPress}
-              value={this.state.searchValue} onChange={this.handleSearchValueChange}
+              value={this.state.searchValue} onChange={this.handleSearchValueChange} id={inputId}
             />
           </span>
 
@@ -86,6 +87,7 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
+  inputId: PropTypes.string,
   placeholder: PropTypes.string,
   iconCode: PropTypes.number,
   searchOptions: PropTypes.arrayOf(
