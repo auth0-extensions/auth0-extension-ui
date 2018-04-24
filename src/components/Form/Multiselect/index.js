@@ -33,6 +33,18 @@ class Multiselect extends Component {
     );
   }
 
+  renderOption(value) {
+    if (this.props.displayLabelOnly) {
+      return (
+        <span>
+          <strong>{value.label}</strong>
+        </span>
+      );
+    }
+
+    return this.renderValue(value)
+  }
+
   renderElement(input, placeholder, loadOptions, name, validationErrors, meta, multi = true) {
     // NOTE: see https://github.com/erikras/redux-form/issues/82 for onBlur() react-select docs
     return (
@@ -42,7 +54,7 @@ class Multiselect extends Component {
           className="react-multiselect"
           name={name}
           loadOptions={loadOptions}
-          optionRenderer={this.renderValue}
+          optionRenderer={this.renderOption.bind(this)}
           valueRenderer={this.renderValue}
           onBlur={() => input.onBlur()}
           placeholder={placeholder}
@@ -80,6 +92,7 @@ class Multiselect extends Component {
 
 Multiselect.propTypes = {
   loadOptions: PropTypes.func.isRequired,
+  displayLabelOnly: PropTypes.boolean,
   onBlur: PropTypes.func,
   input: PropTypes.object,
   placeholder: PropTypes.string,
