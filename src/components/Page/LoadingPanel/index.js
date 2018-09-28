@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import Loader from 'react-loader-advanced';
-import Spinner from './svg/Spinner.svg';
 
 class LoadingPanel extends Component {
   constructor(props) {
