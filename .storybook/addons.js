@@ -1,2 +1,2 @@
-import '@kadira/storybook/addons';
-import '@kadira/storybook-addon-hello/register';
+import '@storybook/react/addons';
+import '@storybook/react-addon-hello/register';
