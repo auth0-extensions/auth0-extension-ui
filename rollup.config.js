@@ -12,13 +12,7 @@ export default {
   },
   plugins: [
     babel({
-      babelrc: false,
-      exclude: 'node_modules/**',
-      presets: [
-        [ '@babel/env' ],
-        [ '@babel/react', { development: process.env.BABEL_ENV === 'development' } ]
-      ],
-      plugins: [ '@babel/plugin-proposal-class-properties' ]
+      babelrc: true
     }),
     resolve({
       browser: true

@@ -1,2 +1,2 @@
-import '@storybook/react/addons';
-import '@storybook/react-addon-hello/register';
+import '@storybook/addon-actions/register';
+import '@storybook/addon-links/register';
