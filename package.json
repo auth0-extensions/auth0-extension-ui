@@ -13,8 +13,7 @@
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build-beta": "rollup -c",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --config ./.storybook/webpack.config.js --colors -p",
+    "build": "npm run clean && rollup -c",
     "build-dev": "npm run clean && cross-env NODE_ENV=development webpack -d --config ./.storybook/webpack.config.js --colors",
     "release": "npm run build && git tag $npm_package_version && git push && git push --tags && npm publish",
     "lint": "eslint src",
