@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
@@ -19,7 +20,7 @@ describe('SidebarItem', () => {
         This is the SidebarItem children.
       </SidebarItem>, {
         context,
-        childContextTypes: { router: React.PropTypes.object }
+        childContextTypes: { router: PropTypes.object }
       });
     done();
   });

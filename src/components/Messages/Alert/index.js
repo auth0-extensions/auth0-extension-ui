@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Alert } from 'react-bootstrap';
 
@@ -31,12 +32,12 @@ class AlertMessage extends Component {
 }
 
 AlertMessage.propTypes = {
-  show: React.PropTypes.bool,
-  type: React.PropTypes.string,
-  title: React.PropTypes.string,
-  message: React.PropTypes.string,
-  onDismiss: React.PropTypes.func,
-  children: React.PropTypes.node
+  show: PropTypes.bool,
+  type: PropTypes.string,
+  title: PropTypes.string,
+  message: PropTypes.string,
+  onDismiss: PropTypes.func,
+  children: PropTypes.node
 };
 
 export default AlertMessage;

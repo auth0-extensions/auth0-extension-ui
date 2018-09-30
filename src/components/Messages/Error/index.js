@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Alert from '../Alert';
 
@@ -23,11 +24,11 @@ class Error extends Component {
 }
 
 Error.propTypes = {
-  show: React.PropTypes.bool,
-  title: React.PropTypes.string,
-  message: React.PropTypes.string,
-  onDismiss: React.PropTypes.func,
-  children: React.PropTypes.node
+  show: PropTypes.bool,
+  title: PropTypes.string,
+  message: PropTypes.string,
+  onDismiss: PropTypes.func,
+  children: PropTypes.node
 };
 
 export default Error;

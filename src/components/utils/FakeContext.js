@@ -1,6 +1,8 @@
 // Note: file content kindly adapted from http://stackoverflow.com/a/38121694/1979794
 
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
+import React from 'react';
 
 export default class FakeContext extends React.Component {
   render() {

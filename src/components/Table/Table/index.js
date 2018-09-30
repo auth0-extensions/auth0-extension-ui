@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const Table = ({ children }) => (
   <table className="table data-table" style={{ tableLayout: 'fixed' }}>

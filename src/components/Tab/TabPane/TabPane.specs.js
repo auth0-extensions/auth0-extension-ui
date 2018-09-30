@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { mount, shallow, render } from 'enzyme';
 import { expect } from 'chai';
@@ -13,7 +14,7 @@ describe('TabPane', () => {
     const context = { router: { isActive: () => true } };
     wrapper = shallow(<TabPane title={title} route="users" />, {
       context,
-      childContextTypes: { router: React.PropTypes.object }
+      childContextTypes: { router: PropTypes.object }
     });
     done();
   });

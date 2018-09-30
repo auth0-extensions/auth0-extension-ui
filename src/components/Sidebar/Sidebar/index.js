@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const Sidebar = ({ children }) => (
   <div id="sidebar" className="col-xs-2">
