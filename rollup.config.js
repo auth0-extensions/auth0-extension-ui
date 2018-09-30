@@ -22,7 +22,7 @@ export default {
         'node_modules/**'
       ],
       namedExports: {
-        'node_modules/react/react.js': [ 'Children', 'Component', 'PropTypes', 'createElement', 'cloneElement' ],
+        'node_modules/react/index.js': [ 'Component', 'PureComponent', 'Fragment', 'Children', 'createElement', 'cloneElement' ],
         'node_modules/react-dom/index.js': [ 'render', 'findDOMNode' ]
       }
     }),
