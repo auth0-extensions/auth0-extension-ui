@@ -1,23 +1,33 @@
+// you can use this file to add your custom webpack plugins, loaders and anything you like.
+// This is just the basic way to add additional webpack configurations.
+// For more information refer the docs: https://storybook.js.org/configurations/custom-webpack-config
+
 // IMPORTANT
-// ---------
-// This is an auto generated file with React CDK.
-// Do not modify this file.
-// Use `.storybook/user/modify_webpack_config.js instead`.
+// When you add this file, we won't add the default configurations which is similar
+// to "React Create App". This only has babel loader to load JavaScript.
 
-const path = require('path');
-const updateConfig = require('./user/modify_webpack_config');
-
-const config = {
+module.exports = {
+  plugins: [
+    // your custom plugins
+  ],
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.css?$/,
-        loaders: ['style', 'raw'],
-        include: path.resolve(__dirname, '../'),
+        test: /\.styl$/,
+        loader: 'style-loader!css-loader!stylus-loader'
       },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.(png|ttf|svg|jpg|gif)/,
+        loader: 'url?limit=8192'
+      },
+      {
+        test: /\.(woff|woff2|eot)/,
+        loader: 'url?limit=100000'
+      }
     ],
-  },
+  }
 };
-
-updateConfig(config);
-module.exports = config;
