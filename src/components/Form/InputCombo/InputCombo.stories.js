@@ -45,7 +45,7 @@ storiesOf('InputCombo', module)
     const field = {
       name: 'FieldName',
       placeholder: 'My placeholder',
-      options: [ { value: 1, text: 'Option 1' }, { value: 2, text: 'Option 2' } ]
+      options: [ { value: 1, text: 'Option 1' } ]
     };
     return renderField(field);
   });
