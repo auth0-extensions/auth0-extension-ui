@@ -47,9 +47,11 @@ class InputCombo extends Component {
       'has-error': (validationErrors && validationErrors[name] && validationErrors[name].length) || (meta && meta.touched && meta.error)
     });
 
+    const defaultPlaceholder = placeholder || 'Please select...';
+
     if (!label) {
-      return this.renderElement(input, meta, placeholder, validationErrors, options, disabled);
-    }
+      return this.renderElement(input, meta, defaultPlaceholder, validationErrors, options, disabled);
+    }    
 
     return (
       <div className={classes}>
@@ -57,7 +59,7 @@ class InputCombo extends Component {
           {label}
         </label>
         <div className="col-xs-9">
-          { this.renderElement(input, meta, placeholder, validationErrors, options, disabled) }
+          { this.renderElement(input, meta, defaultPlaceholder, validationErrors, options, disabled) }
         </div>
       </div>
     );
