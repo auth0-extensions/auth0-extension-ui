@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { expect } from 'chai';
 
 import CodeEditor from './';
@@ -13,11 +13,12 @@ describe('Editor', () => {
   let wrapper;
 
   beforeEach((done) => {
-    wrapper = shallow(<CodeEditor value={field.value} />);
+    wrapper = mount(<CodeEditor value={field.value} />);
     done();
   });
 
   it('should render a codemirror element', () => {
-    expect(wrapper.find('CodeMirror')).to.have.length(1);
+    console.log(wrapper.html())
+    expect(wrapper.find('.ReactCodeMirror')).to.have.length(1);
   });
 });
