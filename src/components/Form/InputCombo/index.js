@@ -2,6 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
 class InputCombo extends Component {
+  static defaultProps = {
+    placeholder: 'Please select...'
+  }
 
   onChange = (event) => {
     const { input: { onChange } } = this.props;
