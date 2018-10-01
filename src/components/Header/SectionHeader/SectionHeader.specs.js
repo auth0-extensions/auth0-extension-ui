@@ -32,8 +32,8 @@ describe('SectionHeader', () => {
     });
 
     it('should render one title element', () => {
-      expect(wrapper.find('h2 .title')).to.have.length(1);
-      expect(wrapper.find('h2 .title').text()).to.equal(field.title);
+      expect(wrapper.find('h2.title')).to.have.length(1);
+      expect(wrapper.find('h2.title').text()).to.equal(field.title);
     });
 
     it('should have a description', () => {

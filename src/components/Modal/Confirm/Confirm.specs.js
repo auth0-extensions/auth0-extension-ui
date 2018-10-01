@@ -67,12 +67,12 @@ describe('Confirm', () => {
     });
 
     it('should call onCancel if modal is closed', () => {
-      wrapper.find('Button .button-cancel').first().simulate('click');
+      wrapper.find('Button.button-cancel').simulate('click');
       expect(field.onCancel.calledOnce).to.equal(true);
     });
 
     it('should call onConfirm if modal is submitted', () => {
-      wrapper.find('Button .button-confirm').simulate('click');
+      wrapper.find('Button.button-confirm').simulate('click');
       expect(field.onConfirm.calledOnce).to.equal(true);
     });
   });
