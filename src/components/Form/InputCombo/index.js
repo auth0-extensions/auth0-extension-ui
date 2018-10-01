@@ -32,7 +32,7 @@ class InputCombo extends Component {
     return (
       <div>
         <select className="form-control" {...input} id={input.name} onChange={this.onChange} disabled={disabled} >
-          { options && options.length > 1 && <option value="">{placeholder}</option>}
+          { options && options.length >= 1 && <option value="">{placeholder}</option>}
           { this.renderOptions(options) }
         </select>
         { this.renderErrors(validationErrors, meta, name) }
