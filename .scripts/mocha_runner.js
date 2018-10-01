@@ -4,8 +4,12 @@
 // Do not modify this file.
 // Use `.scripts/user/pretest.js instead`.
 
-require('babel-core/register');
-require('babel-polyfill');
+require('@babel/register');
+require('@babel/polyfill');
+var enzyme = require('enzyme');
+var Adapter = require('enzyme-adapter-react-16');
+
+enzyme.configure({ adapter: new Adapter() });
 
 // Add jsdom support, which is required for enzyme.
 var jsdom = require('jsdom').jsdom;
