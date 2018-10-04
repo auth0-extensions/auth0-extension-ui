@@ -6,6 +6,7 @@ import InputSwitchItem from './Form/InputSwitchItem';
 import Scope from './Form/Scope';
 import ScopeGroup from './Form/ScopeGroup';
 import Multiselect from './Form/Multiselect';
+import VirtualizedSelect from './Form/VirtualizedSelect';
 import Select from './Form/Select';
 
 // Header components.
@@ -60,6 +61,7 @@ export {
   Scope,
   ScopeGroup,
   Multiselect,
+  VirtualizedSelect,
   Select,
   EntityHeader,
   SectionHeader,

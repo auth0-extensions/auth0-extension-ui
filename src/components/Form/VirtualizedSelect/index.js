@@ -1,10 +1,13 @@
 import React, { Component, PropTypes } from 'react';
-import Select from 'react-select';
+import Select from 'react-virtualized-select';
 import classNames from 'classnames';
 import '../../../../node_modules/react-select/dist/react-select.css';
-import './Multiselect.styl';
+import 'react-virtualized/styles.css';
+import 'react-virtualized-select/styles.css';
+import createFilterOptions from 'react-select-fast-filter-options';
+import './VirtualizedSelect.styl';
 
-class Multiselect extends Component {
+class VirtualizedSelect extends Component {
 
   renderErrors(validationErrors, meta, name) {
     if (validationErrors && validationErrors[name] && validationErrors[name].length) {
@@ -16,7 +19,7 @@ class Multiselect extends Component {
     return null;
   }
 
-  renderValue = (value) => {
+    renderValue = (value) => {
       if (value.label === value.value || this.props.displayLabelOnly) {
       return (
         <span>
@@ -33,19 +36,50 @@ class Multiselect extends Component {
     );
   }
 
-  renderOption = (value) => {
-    return this.renderValue(value)
+	renderOption = ({ focusedOption, focusOption, key, labelKey, option, selectValue, style, valueArray }) => {
+		const className = ['VirtualizedSelectOption']
+        if (option === focusedOption) {
+            className.push('VirtualizedSelectFocusedOption')
+        }
+        if (option.disabled) {
+            className.push('VirtualizedSelectDisabledOption')
+        }
+        if (valueArray && valueArray.indexOf(option) >= 0) {
+            className.push('VirtualizedSelectSelectedOption')
+        }
+        const events = option.disabled
+            ? {}
+            : {
+                onClick: () => selectValue(option),
+                onMouseEnter: () => focusOption(option)
+            }
+        const val = this.renderValue(option)
+        return (
+            <div className={className.join(' ')} key={key}
+                style={style}
+                title={option.title}
+                {...events}
+            >
+                {val}
+            </div>
+        );
   }
 
-  renderElement(input, placeholder, loadOptions, name, validationErrors, meta, multi = true) {
+  renderElement(input, placeholder, options, name, validationErrors, meta, multi = false) {
     // NOTE: see https://github.com/erikras/redux-form/issues/82 for onBlur() react-select docs
+    const tokenizer = {
+        tokenize: (text) => text.split(/[\s]+/)
+    };
+    const filterOptions = createFilterOptions({ options, tokenizer });
     return (
       <div>
-        <Select.Async
+        <Select
           {...input}
           className="react-multiselect"
           name={name}
-          loadOptions={loadOptions}
+          ignoreAccents={false}
+          options={options}
+          filterOptions={filterOptions}
           optionRenderer={this.renderOption}
           valueRenderer={this.renderValue}
           onBlur={() => input.onBlur()}
@@ -58,7 +92,7 @@ class Multiselect extends Component {
   }
 
   render() {
-    const { input, placeholder, loadOptions, multi, label, validationErrors, meta, meta: { touched, error } } = this.props;
+    const { input, placeholder, options, multi, label, validationErrors, meta, meta: { touched, error } } = this.props;
     const name = input.name || 'react-multiselect';
     const classes = classNames({
       'form-group': true,
@@ -66,7 +100,7 @@ class Multiselect extends Component {
     });
 
     if (!label) {
-      return this.renderElement(input, placeholder, loadOptions, name, validationErrors, meta, multi);
+      return this.renderElement(input, placeholder, options, name, validationErrors, meta, multi);
     }
 
     return (
@@ -75,15 +109,15 @@ class Multiselect extends Component {
           {label}
         </label>
         <div className="col-xs-9">
-          {this.renderElement(input, placeholder, loadOptions, name, validationErrors, meta, multi)}
+          {this.renderElement(input, placeholder, options, name, validationErrors, meta, multi)}
         </div>
       </div>
     );
   }
 }
 
-Multiselect.propTypes = {
-  loadOptions: PropTypes.func.isRequired,
+VirtualizedSelect.propTypes = {
+  options: PropTypes.array.isRequired,
   displayLabelOnly: PropTypes.bool,
   onBlur: PropTypes.func,
   input: PropTypes.object,
@@ -95,4 +129,4 @@ Multiselect.propTypes = {
   meta: PropTypes.object
 };
 
-export default Multiselect;
+export default VirtualizedSelect;
