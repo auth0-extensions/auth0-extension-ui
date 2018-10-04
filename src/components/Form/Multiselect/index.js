@@ -16,8 +16,8 @@ class Multiselect extends Component {
     return null;
   }
 
-  renderValue(value) {
-    if (value.label === value.value) {
+  renderValue = (value) => {
+      if (value.label === value.value || this.props.displayLabelOnly) {
       return (
         <span>
           <strong>{value.label}</strong>
@@ -33,15 +33,7 @@ class Multiselect extends Component {
     );
   }
 
-  renderOption(value) {
-    if (this.props.displayLabelOnly) {
-      return (
-        <span>
-          <strong>{value.label}</strong>
-        </span>
-      );
-    }
-
+  renderOption = (value) => {
     return this.renderValue(value)
   }
 
@@ -54,7 +46,7 @@ class Multiselect extends Component {
           className="react-multiselect"
           name={name}
           loadOptions={loadOptions}
-          optionRenderer={this.renderOption.bind(this)}
+          optionRenderer={this.renderOption}
           valueRenderer={this.renderValue}
           onBlur={() => input.onBlur()}
           placeholder={placeholder}
@@ -92,7 +84,7 @@ class Multiselect extends Component {
 
 Multiselect.propTypes = {
   loadOptions: PropTypes.func.isRequired,
-  displayLabelOnly: PropTypes.boolean,
+  displayLabelOnly: PropTypes.bool,
   onBlur: PropTypes.func,
   input: PropTypes.object,
   placeholder: PropTypes.string,

@@ -17,13 +17,7 @@ module.exports = function (config) {
     loader: 'url?limit=100000'
   });
 
-  if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development') {
-    config.externals = {
-     'redux': 'commonjs redux',
-     'react': 'commonjs react',
-     'react-dom': 'commonjs react-dom',
-     'react-router': 'commonjs react-router'
-    };
+	if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development') {
 
     config.module.loaders.push({
       test: /\.jsx?$/,
@@ -31,7 +25,6 @@ module.exports = function (config) {
       exclude: path.join(__dirname, '../../node_modules/')
     });
 
-    config.target = 'node';
     config.entry = path.join(__dirname, '../../src/components/index.js');
     config.output = {
       path: './dist',
