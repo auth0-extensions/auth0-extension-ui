@@ -34,6 +34,15 @@ module.exports = function (config) {
     };
 
     if (process.env.NODE_ENV === 'development') config.debug = true;
+
+    if (process.env.NODE_ENV === 'production') {
+        config.externals = {
+            'redux': 'commonjs redux',
+            'react': 'commonjs react',
+            'react-dom': 'commonjs react-dom',
+            'react-router': 'commonjs react-router'
+        };
+    }
   }
 
   return config;
